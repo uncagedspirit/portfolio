@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Tailwind CSS for custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in webkit browsers */
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
+  scrollbar-width: none;     /* Hide scrollbar in Firefox */
+}
