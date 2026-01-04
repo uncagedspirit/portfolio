@@ -6,7 +6,7 @@ function BioSection() {
   const languages = ['English', 'Hindi', 'Marathi']
 
   return (
-    <div className="px-10 pt-12 bg-amber-50 h-full flex flex-col">
+    <div className="px-10 pt-12 bg-amber-50 h-full border flex flex-col">
       
       {/* Main content */}
       <div className="flex-1">
