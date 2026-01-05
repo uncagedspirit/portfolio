@@ -9,3 +9,31 @@
   -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
   scrollbar-width: none;     /* Hide scrollbar in Firefox */
 }
+
+
+/* ===== Thin Amber Scrollbar (NEW – does not affect custom-scrollbar) ===== */
+
+/* Chrome, Edge, Safari */
+.thin-amber-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-amber-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-amber-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #fbbf24; /* amber-400 */
+  border-radius: 9999px;
+}
+
+.thin-amber-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #f59e0b; /* amber-500 */
+}
+
+/* Firefox */
+.thin-amber-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #fbbf24 transparent;
+}

@@ -9,7 +9,7 @@ function App() {
         <BioSection />
       </div>
 
-      <div className="w-[65%] overflow-y-auto">
+      <div className="w-[65%] overflow-y-auto thin-amber-scrollbar">
         <ProjectsSection />
       </div>
     </div>
