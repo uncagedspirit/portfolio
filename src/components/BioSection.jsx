@@ -13,7 +13,7 @@ function BioSection() {
   const languages = ["English", "Hindi", "Marathi"];
 
   return (
-    <div className="px-10 pt-12 bg-amber-50 h-full border-3 border-amber-200 flex flex-col">
+    <div className="px-10 pt-12 bg-slate-50 h-full border-3 border-slate-200 flex flex-col">
       {/* Main content */}
       <div className="flex-1">
         <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
@@ -29,35 +29,35 @@ function BioSection() {
           Full Stack Developer | Open Source Enthusiast
         </p>
 
-        <p className="text-gray-400 mt-8 mb-2 font-semibold text-sm">ABOUT</p>
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">ABOUT</p>
         <p>
           Hello, I am Saakshi Kobarne, interested in learning fullstack and open
           to freelancing projects
         </p>
 
-        <p className="text-gray-400 mt-8 mb-2 font-semibold text-sm">CONTACT</p>
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">CONTACT</p>
         <p>email: saakshi@mail.com</p>
 
-        <p className="text-gray-400 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
           {skills.map((skill) => (
             <span
               key={skill}
-              className="bg-gray-50 border-2 border-amber-200 px-2 py-1 rounded-xl text-sm"
+              className="bg-gray-50 border-2 border-slate-200 px-2 py-1 rounded-xl text-sm"
             >
               {skill}
             </span>
           ))}
         </div>
 
-        <p className="text-gray-400 mt-8 mb-2 font-semibold text-sm">
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
           LANGUAGES
         </p>
         <div className="flex flex-wrap gap-1">
           {languages.map((language) => (
             <span
               key={language}
-              className="bg-gray-50 border-2 border-amber-200 px-2 py-1 rounded-xl text-sm"
+              className="bg-gray-50 border-2 border-slate-200 px-2 py-1 rounded-xl text-sm"
             >
               {language}
             </span>
@@ -66,7 +66,7 @@ function BioSection() {
       </div>
 
       {/* Bottom box */}
-      <div className="mt-auto bg-amber-200 p-4 -ml-8 -mr-8 mb-2 rounded-lg text-center">
+      <div className="mt-auto bg-slate-200 p-4 -ml-8 -mr-8 mb-2 rounded-lg text-center">
         TODO: Add logos of social profiles
       </div>
     </div>
