@@ -12,7 +12,7 @@ function ExperienceCard({ exp }) {
           <img
             src={exp.logo}
             alt={`${exp.company} logo`}
-            className="w-12 h-12 object-contain rounded-md"
+            className="w-12 h-12 object-cover p-1 rounded-lg bg-slate-100 border border-slate-500"
           />
           <div>
             <p className="font-semibold text-lg leading-tight">{exp.company}</p>

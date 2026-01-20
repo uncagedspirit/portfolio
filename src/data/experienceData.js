@@ -1,30 +1,31 @@
+import hsbc from "../assets/experience/hsbc.webp"
+import cctech from "../assets/experience/cctech.webp"
+
 export const experienceData = [
   {
     id: 1,
-    company: "XYZ Company",
+    company: "HSBC Technology India",
     role: "Software Engineer",
-    logo: "/company-logo.png",
-    duration: "Aug 2025 -Present",
-    workType: "Remote",
+    logo: hsbc,
+    duration: "July 2025 - Present",
+    workType: "Hybrid",
     location: "Pune, India",
     points: [
-      "Built responsive UI using React and Tailwind",
-      "Collaborated with backend and design teams",
-      "Improved performance and accessibility across pages"
+      "To be added soon."
     ]
   },
   {
     id: 2,
-    company: "ABC Tech",
-    role: "Frontend Developer Intern",
-    logo: "/abc-logo.png",
-    duration: "Jan 2024 - Jul 2024",
+    company: "CCTech",
+    role: "Software Engineering Intern",
+    logo: cctech,
+    duration: "Mar 2025 - June 2025",
     workType: "Onsite",
-    location: "Bangalore, India",
+    location: "Pune, India",
     points: [
-      "Developed reusable UI components",
-      "Worked closely with designers for pixel-perfect layouts",
-      "Optimized loading times by reducing bundle size"
+      "Built interactive OpenGL/WebGL-based graphics applications, implementing geometric primitives and matrix-based transformations (translation, rotation, scaling) for 2D/3D rendering.",
+      "Worked with triangle-based 3D models (STL-style meshes) and created animated visualizations, including hierarchical animations for complex objects.",
+      "Developed the frontend for a cloud-based assembly visualization system, integrating AWS S3 inputs and AI-driven part identification to render automated assembly animations."
     ]
   }
 ];
