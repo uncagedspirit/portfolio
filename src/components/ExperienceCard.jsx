@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useLocationImages } from "../hooks/useLocationImages";
+import LocationBubble from "./LocationBubble";
+
 function ExperienceCard({ exp }) {
   const [open, setOpen] = useState(false);
+  const { images, loading, fetchImages } = useLocationImages();
+  const [showBubble, setShowBubble] = useState(false);
+  let hoverTimeout;
 
   return (
     <div
@@ -12,10 +18,20 @@ function ExperienceCard({ exp }) {
           <img
             src={exp.logo}
             alt={`${exp.company} logo`}
-            className="w-12 h-12 object-cover p-1 rounded-lg bg-slate-100 border border-slate-500"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (exp.site) {
+                window.open(exp.site, "_blank", "noopener,noreferrer");
+              }
+            }}
+            className={`w-12 h-12 object-cover p-1 rounded-lg bg-slate-100 border border-slate-500 ${
+              exp.site ? "cursor-pointer hover:scale-105 transition-transform" : ""
+            }`}
           />
           <div>
-            <p className="font-semibold text-lg leading-tight">{exp.company}</p>
+            <p className="font-semibold text-lg leading-tight">
+              {exp.company}
+            </p>
             <p className="text-sm text-slate-700">{exp.role}</p>
           </div>
         </div>
@@ -31,10 +47,42 @@ function ExperienceCard({ exp }) {
               ▼
             </span>
           </div>
-          <p className="text-xs text-slate-600">
-            {exp.workType} · {exp.location}
+
+          <p className="text-xs font-semibold text-slate-600 relative">
+            {exp.workType} ·{" "}
+            <span
+              onMouseEnter={() => {
+                hoverTimeout = setTimeout(() => {
+                  fetchImages(exp.locationImages);
+                  setShowBubble(true);
+                }, 300);
+              }}
+              onMouseLeave={() => {
+                clearTimeout(hoverTimeout);
+                setShowBubble(false);
+              }}
+              className="relative text-sm font-medium text-slate-800 cursor-pointer transition-all duration-200 hover:underline hover:text-slate-900 border-b border-dotted border-slate-900"
+            >
+              {exp.location}
+              {showBubble && (
+                <span className="absolute top-full left-0 mt-2">
+                  <LocationBubble images={images} loading={loading} />
+                </span>
+              )}
+            </span>
           </p>
         </div>
+      </div>
+
+      <div className="flex flex-wrap gap-0.5 mt-3">
+        {exp.techStack?.map((tech) => (
+          <span
+            key={tech}
+            className="bg-gray-50 border border-slate-600 px-1 py-0.5 rounded-lg text-xs"
+          >
+            {tech}
+          </span>
+        ))}
       </div>
 
       <div
