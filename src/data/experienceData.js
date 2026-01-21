@@ -19,7 +19,7 @@ export const experienceData = [
   },
   {
     id: 2,
-    company: "CCTech",
+    company: "Centre for Computational Technologies",
     role: "Software Engineering Intern",
     logo: cctech,
     site: "https://cctech.co.in/",
