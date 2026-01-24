@@ -20,11 +20,11 @@ function LocationBubble({ images, loading }) {
   if (!images.length) return null;
 
   return (
-    <div className="absolute z-50 bg-white rounded-xl shadow-lg w-[125px] h-[125px] overflow-hidden flex items-center justify-center">
+    <div className="absolute z-50 bg-white rounded-xl shadow-lg w-31.25 h-31.25 overflow-hidden flex items-center justify-center">
       <img
         key={images[currentIndex]}
         src={images[currentIndex]}
-        className="w-[200px] h-[200px] object-cover rounded-xl transition-opacity duration-300"
+        className="w-50 h-50 object-cover rounded-xl transition-opacity duration-300"
         style={{ opacity: 1 }}
         alt="Location preview"
       />

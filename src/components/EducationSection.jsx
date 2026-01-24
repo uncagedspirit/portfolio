@@ -4,7 +4,9 @@ import educationData from "../data/educationData";
 function EducationSection() {
   return (
     <>
-      <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">EDUCATION</p>
+      <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
+        EDUCATION
+      </p>
 
       <div className="w-[75%] flex flex-col gap-3">
         {educationData.map((edu, index) => (

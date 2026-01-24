@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import profile from "../assets/profile.jpg";
 import { socialData } from "../data/socialData";
+import { profileData } from "../data/profileData";
 
 function BioSection() {
-  const roles = [
-    "Frontend Developer",
-    "Web Developer",
-    "App Developer",
-    "Full Stack Developer",
-    "AI Engineer",
-    "JavaScript Developer",
-    "Open Source Enthusiast",
-  ];
+  const {
+    name,
+    email,
+    about,
+    roles,
+    skills,
+    languages,
+  } = profileData;
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -45,18 +45,7 @@ function BioSection() {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, phase, roleIndex]);
-
-  const skills = [
-    "JavaScript",
-    "HTML/CSS",
-    "Python",
-    "ReactJs",
-    "NodeJs",
-    "Frontend development",
-  ];
-
-  const languages = ["English", "Hindi", "Marathi"];
+  }, [displayedText, phase, roleIndex, roles]);
 
   return (
     <div className="px-10 pt-12 bg-slate-50 h-full border-3 border-slate-200 flex flex-col">
@@ -69,22 +58,19 @@ function BioSection() {
           />
         </div>
 
-        <h1 className="text-2xl font-semibold">Saakshi</h1>
+        <h1 className="text-2xl font-semibold">{name}</h1>
         <p className="text-gray-700 mb-4 h-6">
           {displayedText}
           <span className="animate-pulse">|</span>
         </p>
 
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">ABOUT</p>
-        <p>
-          Hello, I am Saakshi Kobarne, interested in learning fullstack and open
-          to freelancing projects
-        </p>
+        <p>{about}</p>
 
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
           CONTACT
         </p>
-        <p>email: saakshi@mail.com</p>
+        <p>email: {email}</p>
 
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
