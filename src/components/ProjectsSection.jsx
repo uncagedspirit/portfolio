@@ -3,6 +3,8 @@ import { projects } from "../data/projectsData";
 
 import ExperienceSection from "./ExperienceSection";
 import EducationSection from "./EducationSection";
+import TestimonialsMarquee from "./TestimonialsMarquee";
+import TestimonialsSection from "./TestimonialsSection";
 
 function ProjectsSection() {
 
@@ -61,24 +63,14 @@ function ProjectsSection() {
         </div>
       </div>
 
-
       {/* EXPERIENCE section  */}
       <ExperienceSection />
       
-
-
       {/* EDUCATION section  */}
       <EducationSection/>
 
-
       {/* TESTIMONIALS section  */}
-      <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">TESTIMONIALS</p>
-      <div>
-        <div className="h-28 bg-slate-200 text-slate-900 rounded-2xl border-b-8 border-r-8 border-t border-l border-slate-800 shadow-lg p-4">
-          <p>TESTIMONIALS</p>
-          <p>Great work ethic and problem-solving skills!</p>
-        </div>
-      </div>
+      <TestimonialsSection/>
     </div>
   );
 }
