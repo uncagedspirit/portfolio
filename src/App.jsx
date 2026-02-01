@@ -1,6 +1,6 @@
 import React from "react";
 import BioSection from "./components/BioSection";
-import ProjectsSection from "./components/ProjectsSection";
+import RightSection from "./components/RightSection";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       </div>
 
       <div className="w-[65%] overflow-y-auto thin-amber-scrollbar">
-        <ProjectsSection />
+        <RightSection />
       </div>
     </div>
   );

@@ -8,11 +8,11 @@ function EducationSection() {
         EDUCATION
       </p>
 
-      <div className="w-[75%] flex flex-col gap-3">
+      <div className="w-[85%] flex flex-col gap-3">
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="bg-slate-200 text-slate-900 rounded-2xl border-b-8 border-r-8 border-t border-l border-slate-800 shadow-lg p-4"
+            className="bg-slate-200 text-slate-900 rounded-2xl border-b-8 border-r-8 border-t border-l py-6 border-slate-800 shadow-lg px-4"
           >
             <div className="flex items-start justify-between">
               <div>
