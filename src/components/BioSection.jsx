@@ -4,14 +4,7 @@ import { socialData } from "../data/socialData";
 import { profileData } from "../data/profileData";
 
 function BioSection() {
-  const {
-    name,
-    email,
-    about,
-    roles,
-    skills,
-    languages,
-  } = profileData;
+  const { name, email, about, roles, skills, languages } = profileData;
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -48,8 +41,9 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-10 pt-12 bg-slate-50 h-full border-3 border-slate-200 flex flex-col">
+    <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border border-slate-200 rounded-lg">
       <div className="flex-1">
+        {/* Profile Picture */}
         <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
           <img
             src={profile}
@@ -58,20 +52,21 @@ function BioSection() {
           />
         </div>
 
+        {/* Name + Roles */}
         <h1 className="text-2xl font-semibold">{name}</h1>
         <p className="text-gray-700 mb-4 h-6">
-          {displayedText}
-          <span className="animate-pulse">|</span>
+          {displayedText} <span className="animate-pulse">|</span>
         </p>
 
+        {/* ABOUT */}
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">ABOUT</p>
         <p>{about}</p>
 
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
-          CONTACT
-        </p>
+        {/* CONTACT */}
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">CONTACT</p>
         <p>email: {email}</p>
 
+        {/* SKILLS */}
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
           {skills.map((skill) => (
@@ -84,6 +79,7 @@ function BioSection() {
           ))}
         </div>
 
+        {/* LANGUAGES */}
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
           LANGUAGES
         </p>
@@ -99,28 +95,60 @@ function BioSection() {
         </div>
       </div>
 
-      <div className="mt-auto bg-slate-200 p-4 -ml-8 -mr-8 mb-2 rounded-lg">
-        <div className="flex justify-between items-center px-2">
-          {socialData.map((social) => (
-            <div key={social.key} className="relative group">
-              <img
-                src={social.icon}
-                alt={social.name}
-                className="w-6 h-6 cursor-pointer hover:opacity-70 transition-opacity"
-                onClick={() =>
-                  window.open(social.link, "_blank", "noopener,noreferrer")
-                }
-              />
+      {/* SOCIAL LINKS */}
+      <div className="mt-6 bg-slate-200 p-4 rounded-lg">
+        <div className="flex justify-between items-center">
+          {socialData.map((social, index) => {
+            // Determine tooltip position based on icon index
+            let tooltipPosition = '';
+            if (index === 0) {
+              // First icon - align tooltip to the right of the icon
+              tooltipPosition = 'left-0';
+            } else if (index === socialData.length - 1) {
+              // Last icon - align tooltip to the left of the icon
+              tooltipPosition = 'right-0';
+            } else {
+              // Middle icons - center the tooltip
+              tooltipPosition = 'left-1/2 -translate-x-1/2';
+            }
 
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white border-2 border-slate-300 rounded-lg p-3 shadow-lg w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                <p className="font-semibold text-sm">{social.username}</p>
-                <p className="text-xs text-gray-600 mt-1">
-                  {social.metaValue} {social.metaLabel}
-                </p>
-                <p className="text-xs text-gray-700 mt-2">{social.bio}</p>
+            return (
+              <div key={social.key} className="relative group">
+                {/* Social Icon */}
+                <img
+                  src={social.icon}
+                  alt={social.name}
+                  className="w-6 h-6 cursor-pointer hover:opacity-70 transition-opacity"
+                  onClick={() =>
+                    window.open(social.link, "_blank", "noopener,noreferrer")
+                  }
+                />
+
+                {/* Tooltip - positioned above with smart alignment */}
+                <div
+                  className={`absolute bottom-full mb-2 ${tooltipPosition}
+                    bg-white border-2 border-slate-300 rounded-lg p-3 shadow-xl w-52
+                    invisible opacity-0 group-hover:visible group-hover:opacity-100
+                    transition-all duration-200 pointer-events-none z-10`}
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={social.profileImg}
+                      alt={`${social.name} profile`}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="font-semibold text-sm">{social.username}</p>
+                      <p className="text-xs text-gray-600">
+                        {social.metaValue} {social.metaLabel}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-700 mt-3">{social.bio}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
