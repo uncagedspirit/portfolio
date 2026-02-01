@@ -19,8 +19,8 @@ export const socialData = [
     username: "uncagedspirit_",
     link: "https://x.com/uncagedspirit_",
     metaLabel: "Followers",
-    metaValue: "1.2K",
-    bio: "Full Stack Developer sharing tech insights",
+    metaValue: "300+",
+    bio: "Software Engineer \nSharing the hustle, consistency and productivity hacks 🍀",
   },
   {
     key: "linkedin",
@@ -31,7 +31,7 @@ export const socialData = [
     link: "https://www.linkedin.com/in/saakshikobarne/",
     metaLabel: "Connections",
     metaValue: "500+",
-    bio: "Open to freelance opportunities",
+    bio: "Software Engineer |  AI • Full-Stack Engineering • JavaScript",
   },
   {
     key: "medium",
@@ -41,8 +41,8 @@ export const socialData = [
     username: "uncagedspirit",
     link: "https://medium.com/@uncagedspirit",
     metaLabel: "Followers",
-    metaValue: "340",
-    bio: "Writing about web development",
+    metaValue: "0",
+    bio: "Writing about tech, productivity and self-improvement",
   },
   {
     key: "github",
@@ -52,8 +52,8 @@ export const socialData = [
     username: "uncagedspirit",
     link: "https://github.com/uncagedspirit",
     metaLabel: "Repositories",
-    metaValue: "42",
-    bio: "Building cool projects",
+    metaValue: "73",
+    bio: "Building everyday and contributing to the developer community",
   },
   {
     key: "leetcode",
@@ -63,7 +63,7 @@ export const socialData = [
     username: "uncagedspirit",
     link: "https://leetcode.com/uncagedspirit/",
     metaLabel: "Problems Solved",
-    metaValue: "250+",
+    metaValue: "500+",
     bio: "Solving DSA problems daily",
   },
 ];
