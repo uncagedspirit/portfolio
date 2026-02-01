@@ -1,22 +1,12 @@
 export const testimonials = [
   {
-    name: "John Doe",
-    role: "Frontend Lead",
-    text: "Great work ethic and excellent problem-solving skills.",
+    name: "Shubham Nehul",
+    role: "Client",
+    text: "Saakshi consistently delivers clean and scalable websites.",
   },
   {
-    name: "Jane Smith",
-    role: "Product Manager",
-    text: "Saakshi consistently delivers clean and scalable solutions.",
-  },
-  {
-    name: "Rahul Mehta",
-    role: "CTO",
-    text: "Strong fundamentals and quick learner. A pleasure to work with.",
-  },
-  {
-    name: "Ananya Kulkarni",
-    role: "Senior Engineer",
-    text: "Very reliable and detail-oriented developer.",
+    name: "Saarthak",
+    role: "Client",
+    text: "Great work and attention to detail.",
   },
 ];

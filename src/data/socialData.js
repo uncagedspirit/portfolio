@@ -20,7 +20,7 @@ export const socialData = [
     link: "https://x.com/uncagedspirit_",
     metaLabel: "Followers",
     metaValue: "300+",
-    bio: "Software Engineer \nSharing the hustle, consistency and productivity hacks 🍀",
+    bio: "Software Engineer \nSharing the hustle, consistency and productivity hacks🍀",
   },
   {
     key: "linkedin",
