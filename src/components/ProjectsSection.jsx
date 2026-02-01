@@ -1,6 +1,5 @@
 import React from "react";
 import { projects } from "../data/projectsData";
-import brainwaveVideo from "../assets/project recordings/brainwave.webm";
 
 function ProjectsSection() {
   const fileFormat = "jpg";
@@ -50,7 +49,7 @@ function ProjectsSection() {
                   </div>
 
                   <video
-                    src={brainwaveVideo}
+                    src={project.video}
                     muted
                     autoPlay
                     loop

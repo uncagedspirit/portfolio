@@ -43,7 +43,6 @@ function BioSection() {
   return (
     <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border border-slate-200 rounded-lg">
       <div className="flex-1">
-        {/* Profile Picture */}
         <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
           <img
             src={profile}
@@ -52,7 +51,6 @@ function BioSection() {
           />
         </div>
 
-        {/* Name + Roles */}
         <h1 className="text-2xl font-semibold">{name}</h1>
         <p className="text-gray-700 mb-4 h-6">
           {displayedText} <span className="animate-pulse">|</span>
@@ -63,7 +61,9 @@ function BioSection() {
         <p>{about}</p>
 
         {/* CONTACT */}
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">CONTACT</p>
+        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
+          CONTACT
+        </p>
         <p>email: {email}</p>
 
         {/* SKILLS */}
@@ -99,22 +99,17 @@ function BioSection() {
       <div className="mt-6 bg-slate-200 p-4 rounded-lg">
         <div className="flex justify-between items-center">
           {socialData.map((social, index) => {
-            // Determine tooltip position based on icon index
-            let tooltipPosition = '';
+            let tooltipPosition = "";
             if (index === 0) {
-              // First icon - align tooltip to the right of the icon
-              tooltipPosition = 'left-0';
+              tooltipPosition = "left-0";
             } else if (index === socialData.length - 1) {
-              // Last icon - align tooltip to the left of the icon
-              tooltipPosition = 'right-0';
+              tooltipPosition = "right-0";
             } else {
-              // Middle icons - center the tooltip
-              tooltipPosition = 'left-1/2 -translate-x-1/2';
+              tooltipPosition = "left-1/2 -translate-x-1/2";
             }
 
             return (
               <div key={social.key} className="relative group">
-                {/* Social Icon */}
                 <img
                   src={social.icon}
                   alt={social.name}
@@ -124,7 +119,6 @@ function BioSection() {
                   }
                 />
 
-                {/* Tooltip - positioned above with smart alignment */}
                 <div
                   className={`absolute bottom-full mb-2 ${tooltipPosition}
                     bg-white border-2 border-slate-300 rounded-lg p-3 shadow-xl w-52
