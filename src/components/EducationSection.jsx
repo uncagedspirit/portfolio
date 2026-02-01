@@ -26,7 +26,7 @@ function EducationSection() {
 
               <div className="flex flex-col items-end">
                 <p className="text-sm text-slate-700">{edu.duration}</p>
-                <p className="text-xs font-semibold text-slate-800">
+                <p className="text-sm font-bold text-slate-900">
                   {edu.scoreLabel}: {edu.scoreValue}
                 </p>
               </div>
