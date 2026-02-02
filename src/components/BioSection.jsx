@@ -61,9 +61,24 @@ function BioSection() {
         <p>{about}</p>
 
         {/* CONTACT */}
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">
-          CONTACT
-        </p>
+        {/* CONTACT */}
+<div className="flex items-center gap-2 mt-8 mb-2">
+  <p className="text-slate-900 font-semibold text-sm">CONTACT</p>
+
+  {/* NEW BUTTON EXACTLY BESIDE CONTACT */}
+  <button
+    className="
+      w-7 h-7 text-2xl flex items-center justify-center px-1 pb-1
+      border border-slate-900 rounded-full 
+      text-slate-900 
+      transition-colors duration-300
+      hover:bg-slate-900 hover:text-slate-300 hover:border-slate-300
+    "
+    onClick={() => console.log('Contact button clicked')}
+  >
+    ↗
+  </button>
+</div>
         <p>email: {email}</p>
 
         {/* SKILLS */}

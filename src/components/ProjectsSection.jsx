@@ -71,7 +71,7 @@ function ProjectsSection() {
           <button
             className="px-8 py-2 rounded-lg border border-slate-900 text-slate-900
               transition-all duration-300
-              hover:bg-slate-900 hover:text-white hover:shadow-md"
+              hover:bg-slate-900 hover:border-slate-900 hover:text-white hover:shadow-md"
           >
             View All Projects
           </button>
