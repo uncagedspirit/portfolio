@@ -41,11 +41,11 @@ function ProjectsSection() {
                 ></div>
 
                 <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div className="mb-2">
+                  <div className="mb-1">
                     <p className="font-semibold text-slate-900">
                       {project.title}
                     </p>
-                    <p className="text-slate-700 mt-1">{project.description}</p>
+                    <p className="text-slate-700 mx-2 my-1">{project.description}</p>
                   </div>
 
                   <video
