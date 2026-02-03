@@ -1,12 +1,12 @@
 export const testimonials = [
   {
     name: "Shubham Nehul",
-    role: "Client",
+    role: "ASO Specialist",
     text: "Saakshi consistently delivers clean and scalable websites.",
   },
   {
     name: "Saarthak",
-    role: "Client",
+    role: "Photographer",
     text: "Great work and attention to detail.",
   },
 ];
