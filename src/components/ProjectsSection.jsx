@@ -18,8 +18,12 @@ function ProjectsSection() {
               <div
                 key={index}
                 className="
-                  group relative h-60 p-6 rounded-lg shadow-md
-                  bg-slate-50 overflow-hidden
+                  group relative h-60 p-6
+                  bg-slate-200 text-slate-900
+                  rounded-2xl
+                  border-b-6 border-r-6 border-t border-l border-slate-800
+                  shadow-lg
+                  overflow-hidden
                 "
               >
                 <div
@@ -33,7 +37,7 @@ function ProjectsSection() {
 
                 <div
                   className="
-                    absolute inset-0 bg-slate-50/90
+                    absolute inset-0 bg-slate-200
                     group-hover:bg-slate-50/40
                     transition-colors duration-300
                     z-2
@@ -45,7 +49,9 @@ function ProjectsSection() {
                     <p className="font-semibold text-slate-900">
                       {project.title}
                     </p>
-                    <p className="text-slate-700 mx-2 my-1">{project.description}</p>
+                    <p className="text-slate-700 mx-2 my-1">
+                      {project.description}
+                    </p>
                   </div>
 
                   <video

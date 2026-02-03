@@ -11,9 +11,15 @@ function TestimonialsMarquee() {
         {[...testimonials, ...testimonials].map((t, index) => (
           <div
             key={index}
-            className="min-w-70 bg-slate-200 text-slate-900
-              rounded-2xl border-b-8 border-r-8 border-slate-800
-              shadow-lg p-4"
+            className="
+              min-w-70
+              bg-slate-200 text-slate-900
+              rounded-2xl
+              border-t border-l
+              border-b-6 border-r-6 border-slate-800
+              shadow-lg
+              p-4
+            "
           >
             <p className="text-sm font-semibold">{t.name}</p>
             <p className="text-xs text-slate-600">{t.role}</p>

@@ -11,7 +11,7 @@ function ExperienceCard({ exp }) {
   return (
     <div
       onClick={() => setOpen(!open)}
-      className="bg-slate-200 text-slate-900 rounded-2xl border-b-8 border-r-8 border-t border-l border-slate-800 shadow-lg p-4 cursor-pointer select-none"
+      className="bg-slate-200 text-slate-900 rounded-2xl border-b-6 border-r-6   border-t border-l border-slate-800 shadow-lg p-4 cursor-pointer select-none"
     >
       <div className="flex items-start justify-between">
         <div className="flex gap-3">

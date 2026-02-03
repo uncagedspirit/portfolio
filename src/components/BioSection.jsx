@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import profile from "../assets/profile.jpg";
 import { socialData } from "../data/socialData";
 import { profileData } from "../data/profileData";
-import ContactModal from "./ContactModal"; // <-- ADD THIS
+import ContactModal from "./ContactModal";
 
 function BioSection() {
   const { name, email, about, roles, skills, languages } = profileData;
@@ -11,7 +11,7 @@ function BioSection() {
   const [displayedText, setDisplayedText] = useState("");
   const [phase, setPhase] = useState("typing");
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // <-- ADD THIS
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -46,7 +46,6 @@ function BioSection() {
   return (
     <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border border-slate-200 rounded-lg">
 
-      {/* --- CONTACT MODAL --- */}
       <ContactModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -70,7 +69,6 @@ function BioSection() {
         <div className="flex items-center gap-2 mt-8 mb-2">
           <p className="text-slate-900 font-semibold text-sm">CONTACT</p>
 
-          {/* BUTTON THAT OPENS MODAL */}
           <button
             className="
               w-7 h-7 text-2xl flex items-center justify-center px-1 pb-1
@@ -79,7 +77,7 @@ function BioSection() {
               transition-colors duration-300
               hover:bg-slate-900 hover:text-slate-300 hover:border-slate-300
             "
-            onClick={() => setIsModalOpen(true)} // <-- WIRED
+            onClick={() => setIsModalOpen(true)}
           >
             ↗
           </button>
@@ -91,7 +89,7 @@ function BioSection() {
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
           {skills.map((skill) => (
-            <span key={skill} className="bg-gray-50 border-2 border-slate-200 px-2 py-1 rounded-xl text-sm">
+            <span key={skill} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-sm">
               {skill}
             </span>
           ))}
@@ -101,15 +99,24 @@ function BioSection() {
         <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
         <div className="flex flex-wrap gap-1">
           {languages.map((language) => (
-            <span key={language} className="bg-gray-50 border-2 border-slate-200 px-2 py-1 rounded-xl text-sm">
+            <span key={language} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-sm">
               {language}
             </span>
           ))}
         </div>
       </div>
 
-      {/* SOCIAL LINKS (unchanged) */}
-      <div className="mt-6 bg-slate-200 p-4 rounded-lg">
+      <div
+        className="
+          mt-6
+          bg-slate-200
+          p-4
+          rounded-2xl
+          border-t border-l
+          border-b-4 border-r-4 border-slate-800
+          shadow-lg
+        "
+      >
         <div className="flex justify-between items-center">
           {socialData.map((social, index) => {
             let tooltipPosition = "";
@@ -123,17 +130,23 @@ function BioSection() {
                   src={social.icon}
                   alt={social.name}
                   className="w-6 h-6 cursor-pointer hover:opacity-70 transition-opacity"
-                  onClick={() => window.open(social.link, "_blank", "noopener,noreferrer")}
+                  onClick={() =>
+                    window.open(social.link, "_blank", "noopener,noreferrer")
+                  }
                 />
 
                 <div
                   className={`absolute bottom-full mb-2 ${tooltipPosition}
-                    bg-white border-2 border-slate-300 rounded-lg p-3 shadow-xl w-52
+                    bg-white border border-slate-400 rounded-lg p-3 shadow-xl w-52
                     invisible opacity-0 group-hover:visible group-hover:opacity-100
                     transition-all duration-200 pointer-events-none z-10`}
                 >
                   <div className="flex items-center gap-3">
-                    <img src={social.profileImg} alt={`${social.name} profile`} className="w-10 h-10 rounded-full object-cover" />
+                    <img
+                      src={social.profileImg}
+                      alt={`${social.name} profile`}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                     <div>
                       <p className="font-semibold text-sm">{social.username}</p>
                       <p className="text-xs text-gray-600">
