@@ -11,9 +11,8 @@ function ProjectsSection() {
       <div className="w-[90%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.slice(0, 4).map((project, index) => {
-            const randomIndex = Math.floor(Math.random() * 10) + 1;
+            const randomIndex = Math.floor(Math.random() * 15) + 1;
             const backgroundPath = `/backgrounds/${randomIndex}.${fileFormat}`;
-
             return (
               <div
                 key={index}

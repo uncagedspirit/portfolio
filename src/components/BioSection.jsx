@@ -44,7 +44,7 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border border-slate-200 rounded-lg">
+    <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border-r-2 border-slate-900 ">
 
       <ContactModal
         isOpen={isModalOpen}
