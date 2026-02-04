@@ -73,7 +73,6 @@ Sharing the hustle, consistency and productivity hacks🍀`},{key:"linkedin",nam
                   opacity-0 group-hover:opacity-100\r
                   transition-opacity duration-500\r
                   scale-100 group-hover:scale-110\r
-                  transition-transform duration-500\r
                 `,style:{backgroundImage:`url(${h})`,zIndex:0}}),A.jsx("div",{className:`\r
                   absolute inset-0\r
                   bg-slate-200 group-hover:bg-slate-900/20\r
