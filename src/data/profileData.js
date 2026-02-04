@@ -1,6 +1,6 @@
 export const profileData = {
   name: "Saakshi",
-  email: "saakshi@mail.com",
+  email: "saakshikobarne@gmail.com",
   about:
     "Hello, I am Saakshi Kobarne, interested in learning fullstack and open to freelancing projects",
 

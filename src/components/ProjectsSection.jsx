@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
 
 function ProjectsSection() {
+  const navigate = useNavigate();
   const fileFormat = "jpg";
 
   return (
@@ -13,6 +15,7 @@ function ProjectsSection() {
           {projects.slice(0, 4).map((project, index) => {
             const randomIndex = Math.floor(Math.random() * 15) + 1;
             const backgroundPath = `/backgrounds/${randomIndex}.${fileFormat}`;
+            
             return (
               <div
                 key={index}
@@ -23,32 +26,44 @@ function ProjectsSection() {
                   border-b-6 border-r-6 border-t border-l border-slate-800
                   shadow-lg
                   overflow-hidden
+                  cursor-pointer
                 "
               >
+                {/* Background Image Layer - FIXED z-index */}
                 <div
                   className="
-                    absolute inset-0 bg-cover bg-center opacity-0
-                    group-hover:opacity-100 transition-opacity duration-300
-                    z-1
+                    absolute inset-0 bg-cover bg-center
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500
+                    scale-100 group-hover:scale-110
+                    transition-transform duration-500
                   "
-                  style={{ backgroundImage: `url(${backgroundPath})` }}
-                ></div>
+                  style={{
+                    backgroundImage: `url(${backgroundPath})`,
+                    zIndex: 0,
+                  }}
+                />
 
+                {/* Overlay Layer - FIXED z-index */}
                 <div
                   className="
-                    absolute inset-0 bg-slate-200
-                    group-hover:bg-slate-50/40
-                    transition-colors duration-300
-                    z-2
+                    absolute inset-0
+                    bg-slate-200 group-hover:bg-slate-900/60
+                    transition-all duration-500
                   "
-                ></div>
+                  style={{ zIndex: 1 }}
+                />
 
-                <div className="relative z-10 h-full flex flex-col justify-between">
+                {/* Content Layer - FIXED z-index */}
+                <div
+                  className="relative h-full flex flex-col justify-between"
+                  style={{ zIndex: 10 }}
+                >
                   <div className="mb-1">
-                    <p className="font-semibold text-slate-900">
+                    <p className="font-semibold text-slate-900 group-hover:text-white transition-colors duration-300">
                       {project.title}
                     </p>
-                    <p className="text-slate-700 mx-2 my-1">
+                    <p className="text-slate-700 mx-2 my-1 group-hover:text-slate-100 transition-colors duration-300">
                       {project.description}
                     </p>
                   </div>
@@ -74,6 +89,7 @@ function ProjectsSection() {
 
         <div className="flex justify-center mt-8">
           <button
+            onClick={() => navigate("/projects")}
             className="px-8 py-2 rounded-lg border border-slate-900 text-slate-900
               transition-all duration-300
               hover:bg-slate-900 hover:border-slate-900 hover:text-white hover:shadow-md"
