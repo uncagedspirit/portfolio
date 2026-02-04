@@ -14,7 +14,7 @@ function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.slice(0, 4).map((project, index) => {
             const randomIndex = Math.floor(Math.random() * 15) + 1;
-            const backgroundPath = `/backgrounds/${randomIndex}.${fileFormat}`;
+            const backgroundPath = `src/assets/backgrounds/${randomIndex}.${fileFormat}`;
             
             return (
               <div
@@ -48,7 +48,7 @@ function ProjectsSection() {
                 <div
                   className="
                     absolute inset-0
-                    bg-slate-200 group-hover:bg-slate-900/60
+                    bg-slate-200 group-hover:bg-slate-300/35
                     transition-all duration-500
                   "
                   style={{ zIndex: 1 }}
@@ -60,10 +60,10 @@ function ProjectsSection() {
                   style={{ zIndex: 10 }}
                 >
                   <div className="mb-1">
-                    <p className="font-semibold text-slate-900 group-hover:text-white transition-colors duration-300">
+                    <p className="font-semibold text-slate-900 group-hover:text-black transition-colors duration-300">
                       {project.title}
                     </p>
-                    <p className="text-slate-700 mx-2 my-1 group-hover:text-slate-100 transition-colors duration-300">
+                    <p className="text-slate-700 mx-2 my-1 group-hover:text-slate-900 transition-colors duration-300">
                       {project.description}
                     </p>
                   </div>

@@ -5,8 +5,10 @@ import RightSection from "./components/RightSection";
 import AllProjects from "./components/AllProjects";
 
 function App() {
+  const basename = import.meta.env.BASE_URL;
+  
   return (
-    <Router>
+    <Router basename={basename}>
       <Routes>
         <Route
           path="/"
