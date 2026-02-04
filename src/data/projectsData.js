@@ -1,5 +1,5 @@
 import brainwaveVideo from "../assets/project recordings/brainwave.webm"; 
-import brainwaveLogo from "../assets/project logos/brainwave.svg"; 
+import brainwaveLogo from "../assets/project logos/brainwave-symbol.svg"; 
 
 import ochiVideo from "../assets/project recordings/ochi.webm"; 
 import ochiLogo from "../assets/project logos/ochi.png"; 

@@ -27,13 +27,13 @@ function AllProjects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => {
           const randomIndex = Math.floor(Math.random() * 15) + 1;
-          const backgroundPath = `/backgrounds/${randomIndex}.${fileFormat}`;
+          const backgroundPath = `src/assets/backgrounds/${randomIndex}.${fileFormat}`;
 
           return (
             <div
               key={project.projectId}
               className="
-                group relative h-80 p-6
+                group relative h-80 
                 bg-slate-200 text-slate-900
                 rounded-2xl
                 border-b-6 border-r-6 border-t border-l border-slate-800
@@ -44,7 +44,7 @@ function AllProjects() {
                 hover:scale-[1.02]
               "
             >
-              {/* Background Image Layer */}
+              {/* Background Image Layer - Lighter */}
               <div
                 className="
                   absolute inset-0 bg-cover bg-center
@@ -59,11 +59,11 @@ function AllProjects() {
                 }}
               />
 
-              {/* Overlay Layer */}
+              {/* Light Overlay - Much lighter, only for text readability */}
               <div
                 className="
                   absolute inset-0
-                  bg-slate-200 group-hover:bg-slate-900/60
+                  bg-slate-200 group-hover:bg-slate-900/20
                   transition-all duration-500
                 "
                 style={{ zIndex: 1 }}
@@ -71,51 +71,51 @@ function AllProjects() {
 
               {/* Content Layer */}
               <div
-                className="relative h-full flex flex-col justify-between"
+                className="relative h-full flex flex-col"
                 style={{ zIndex: 10 }}
               >
                 {/* Top Section - Title & Description */}
-                <div className="mb-2">
+                <div className="p-4 pb-2">
                   <div className="flex items-center gap-2 mb-2">
                     {project.logo && (
                       <img
                         src={project.logo}
                         alt={`${project.title} logo`}
-                        className="w-8 h-8 rounded-lg object-cover bg-white p-1 border border-slate-300"
+                        className="w-8 h-8 rounded-lg object-cover bg-white p-1 border border-slate-300 shadow-md"
                       />
                     )}
-                    <p className="font-semibold text-lg text-slate-900 group-hover:text-white transition-colors duration-300">
+                    <h3 className="font-bold text-lg text-slate-900 group-hover:text-white drop-shadow-md transition-colors duration-300">
                       {project.title}
-                    </p>
+                    </h3>
                   </div>
-                  <p className="text-slate-700 text-sm group-hover:text-slate-100 transition-colors duration-300">
+                  <p className="text-slate-700 text-sm group-hover:text-white drop-shadow transition-colors duration-300">
                     {project.description}
                   </p>
-                  <p className="text-xs text-slate-500 group-hover:text-slate-300 mt-1 transition-colors duration-300">
+                  <p className="text-xs text-slate-500 group-hover:text-white/80 drop-shadow mt-1 transition-colors duration-300">
                     {project.date}
                   </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {project.techStack?.map((tech) => (
+                      <span
+                        key={tech}
+                        className="
+                          bg-white/70 group-hover:bg-white/90
+                          text-slate-800 
+                          border border-slate-400
+                          px-2 py-0.5 rounded-lg text-xs font-medium
+                          transition-all duration-300 shadow-sm
+                        "
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Middle Section - Tech Stack */}
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {project.techStack?.map((tech) => (
-                    <span
-                      key={tech}
-                      className="
-                        bg-slate-50 group-hover:bg-slate-800
-                        text-slate-800 group-hover:text-slate-100
-                        border border-slate-600 group-hover:border-slate-400
-                        px-2 py-0.5 rounded-lg text-xs
-                        transition-all duration-300
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Bottom Section - Video */}
-                <div className="relative">
+                {/* Bottom Section - Full Video */}
+                <div className="relative flex-1 p-4 pt-0">
                   <video
                     src={project.video}
                     muted
@@ -123,11 +123,10 @@ function AllProjects() {
                     loop
                     playsInline
                     className="
-                      rounded-md shadow-md
-                      w-full h-32 object-cover
-                      transition-transform duration-300
-                      group-hover:scale-105
-                      border-2 border-slate-300 group-hover:border-slate-100
+                      rounded-lg shadow-lg
+                      w-full h-full object-cover
+                      border-2 border-slate-300 group-hover:border-white
+                      transition-all duration-300
                     "
                   />
 
@@ -136,9 +135,10 @@ function AllProjects() {
                     absolute inset-0 
                     opacity-0 group-hover:opacity-100
                     flex items-center justify-center gap-3
-                    bg-slate-900/40
-                    rounded-md
+                    bg-slate-900/50
+                    rounded-lg
                     transition-opacity duration-300
+                    m-4 mt-0
                   ">
                     {project.liveLink && (
                       <a
@@ -148,8 +148,8 @@ function AllProjects() {
                         onClick={(e) => e.stopPropagation()}
                         className="
                           px-4 py-2 bg-white text-slate-900 rounded-lg
-                          font-semibold text-sm
-                          hover:bg-slate-100 transition-colors
+                          font-semibold text-sm border border-slate-900
+                          hover:bg-slate-100 transition-colors shadow-lg
                         "
                       >
                         Live Demo
@@ -163,8 +163,8 @@ function AllProjects() {
                         onClick={(e) => e.stopPropagation()}
                         className="
                           px-4 py-2 bg-slate-800 text-white rounded-lg
-                          font-semibold text-sm border border-slate-600
-                          hover:bg-slate-700 transition-colors
+                          font-semibold text-sm border border-white
+                          hover:bg-slate-700 transition-colors shadow-lg
                         "
                       >
                         GitHub
