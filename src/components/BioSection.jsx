@@ -44,7 +44,7 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-10 pt-12 bg-slate-50 h-full flex flex-col border-r-2 border-slate-900 ">
+    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 bg-slate-50 h-full flex flex-col lg:border-r-2 lg:border-slate-900">
 
       <ContactModal
         isOpen={isModalOpen}
@@ -52,21 +52,21 @@ function BioSection() {
       />
 
       <div className="flex-1">
-        <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4">
           <img src={profile} alt="profile" className="w-full h-full object-cover"/>
         </div>
 
-        <h1 className="text-2xl font-semibold">{name}</h1>
-        <p className="text-gray-700 mb-4 h-6">
+        <h1 className="text-xl sm:text-2xl font-semibold">{name}</h1>
+        <p className="text-gray-700 mb-4 h-6 text-sm sm:text-base">
           {displayedText} <span className="animate-pulse">|</span>
         </p>
 
         {/* ABOUT */}
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">ABOUT</p>
-        <p>{about}</p>
+        <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">ABOUT</p>
+        <p className="text-sm sm:text-base">{about}</p>
 
         {/* CONTACT */}
-        <div className="flex items-center gap-2 mt-8 mb-2">
+        <div className="flex items-center gap-2 mt-6 sm:mt-8 mb-2">
           <p className="text-slate-900 font-semibold text-sm">CONTACT</p>
 
           <button
@@ -83,23 +83,23 @@ function BioSection() {
           </button>
         </div>
 
-        <p>email: {email}</p>
+        <p className="text-sm sm:text-base break-all">email: {email}</p>
 
         {/* SKILLS */}
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">SKILLS</p>
+        <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
           {skills.map((skill) => (
-            <span key={skill} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-sm">
+            <span key={skill} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-xs sm:text-sm">
               {skill}
             </span>
           ))}
         </div>
 
         {/* LANGUAGES */}
-        <p className="text-slate-900 mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
-        <div className="flex flex-wrap gap-1">
+        <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
+        <div className="flex flex-wrap gap-1 mb-6 lg:mb-0">
           {languages.map((language) => (
-            <span key={language} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-sm">
+            <span key={language} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-xs sm:text-sm">
               {language}
             </span>
           ))}
@@ -108,9 +108,9 @@ function BioSection() {
 
       <div
         className="
-          mt-6
+          mt-6 mb-6 lg:mb-0
           bg-slate-200
-          p-4
+          p-3 sm:p-4
           rounded-2xl
           border-t border-l
           border-b-4 border-r-4 border-slate-800
@@ -129,14 +129,14 @@ function BioSection() {
                 <img
                   src={social.icon}
                   alt={social.name}
-                  className="w-6 h-6 cursor-pointer hover:opacity-70 transition-opacity"
+                  className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition-opacity"
                   onClick={() =>
                     window.open(social.link, "_blank", "noopener,noreferrer")
                   }
                 />
 
                 <div
-                  className={`absolute bottom-full mb-2 ${tooltipPosition}
+                  className={`hidden lg:block absolute bottom-full mb-2 ${tooltipPosition}
                     bg-white border border-slate-400 rounded-lg p-3 shadow-xl w-52
                     invisible opacity-0 group-hover:visible group-hover:opacity-100
                     transition-all duration-200 pointer-events-none z-10`}

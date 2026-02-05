@@ -13,11 +13,12 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="flex h-screen overflow-hidden">
-              <div className="w-[35%]">
+            <div className="flex flex-col lg:flex-row lg:h-screen lg:overflow-hidden">
+              <div className="w-full lg:w-[35%]">
                 <BioSection />
               </div>
-              <div className="w-[65%] overflow-y-auto thin-amber-scrollbar">
+              
+              <div className="w-full lg:w-[65%] lg:overflow-y-auto lg:thin-amber-scrollbar">
                 <RightSection />
               </div>
             </div>
