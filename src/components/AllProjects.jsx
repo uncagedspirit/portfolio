@@ -27,7 +27,7 @@ function AllProjects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => {
           const randomIndex = Math.floor(Math.random() * 15) + 1;
-          const backgroundPath = `src/assets/backgrounds/${randomIndex}.${fileFormat}`;
+          const backgroundPath = `${import.meta.env.BASE_URL}backgrounds/${randomIndex}.${fileFormat}`;
 
           return (
             <div
@@ -51,7 +51,6 @@ function AllProjects() {
                   opacity-0 group-hover:opacity-100
                   transition-opacity duration-500
                   scale-100 group-hover:scale-110
-                  transition-transform duration-500
                 "
                 style={{
                   backgroundImage: `url(${backgroundPath})`,

@@ -13,7 +13,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
 
-    "deploy:github": "cross-env VITE_BASE_PATH=/portfolio-website/ vite build && gh-pages -d dist",
+    "deploy:github": "cross-env VITE_BASE_PATH=/portfolio/ vite build && gh-pages -d dist",
     "deploy:root": "cross-env VITE_BASE_PATH=/ vite build && gh-pages -d dist",
     "deploy:custom": "vite build && gh-pages -d dist"
   },
