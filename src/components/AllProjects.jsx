@@ -122,47 +122,53 @@ function AllProjects() {
                       transition-all duration-300
                     "
                   />
+                </div>
 
-                  <div className="
-                    absolute inset-0 
-                    opacity-0 group-hover:opacity-100
-                    flex items-center justify-center gap-2 sm:gap-3
-                    bg-slate-900/50
-                    rounded-lg
-                    transition-opacity duration-300
-                    m-3 sm:m-4 mt-0
-                  ">
-                    {project.liveLink && (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="
-                          px-3 sm:px-4 py-2 bg-white text-slate-900 rounded-lg
-                          font-semibold text-xs sm:text-sm border border-slate-900
-                          hover:bg-slate-100 transition-colors shadow-lg
-                        "
-                      >
-                        Live Demo
-                      </a>
-                    )}
-                    {project.githubLink && (
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="
-                          px-3 sm:px-4 py-2 bg-slate-800 text-white rounded-lg
-                          font-semibold text-xs sm:text-sm border border-white
-                          hover:bg-slate-700 transition-colors shadow-lg
-                        "
-                      >
-                        GitHub
-                      </a>
-                    )}
-                  </div>
+                {/* Action Buttons - Always Visible */}
+                <div className="p-3 sm:p-4 pt-0 flex items-center justify-center gap-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/projects/${project.projectId}`);
+                    }}
+                    className="
+                      px-4 py-2 bg-slate-900 text-white rounded-lg
+                      font-semibold text-xs sm:text-sm border-2 border-slate-900
+                      hover:bg-slate-800 transition-colors shadow-md
+                    "
+                  >
+                    Details
+                  </button>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="
+                        px-3 py-2 bg-white text-slate-900 rounded-lg
+                        font-semibold text-xs sm:text-sm border border-slate-400
+                        hover:bg-slate-100 transition-colors shadow-md
+                      "
+                    >
+                      Live
+                    </a>
+                  )}
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="
+                        px-3 py-2 bg-white text-slate-900 rounded-lg
+                        font-semibold text-xs sm:text-sm border border-slate-400
+                        hover:bg-slate-100 transition-colors shadow-md
+                      "
+                    >
+                      Code
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
