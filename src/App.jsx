@@ -4,6 +4,7 @@ import BioSection from "./components/BioSection";
 import RightSection from "./components/RightSection";
 import AllProjects from "./components/AllProjects";
 import ProjectDetail from "./components/ProjectDetail";
+import ExperienceDetail from "./components/ExperienceDetail";
 
 function App() {
   const basename = import.meta.env.BASE_URL;
@@ -28,6 +29,7 @@ function App() {
 
         <Route path="/projects" element={<AllProjects />} />
         <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="/experience/:id" element={<ExperienceDetail />} />
       </Routes>
     </Router>
   );

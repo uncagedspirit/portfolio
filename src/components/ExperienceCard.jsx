@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLocationImages } from "../hooks/useLocationImages";
 import LocationBubble from "./LocationBubble";
 
 function ExperienceCard({ exp }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const { images, loading, fetchImages } = useLocationImages();
   const [showBubble, setShowBubble] = useState(false);
   let hoverTimeout;
@@ -96,6 +98,19 @@ function ExperienceCard({ exp }) {
             <li key={index}>{point}</li>
           ))}
         </ul>
+        
+        {/* Link to detailed experience page */}
+        <p className="mt-3 text-xs sm:text-sm text-slate-600">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/experience/${exp.id}`);
+            }}
+            className="text-slate-900 font-medium hover:underline hover:text-slate-700 transition-colors"
+          >
+            Want to know more about this? →
+          </button>
+        </p>
       </div>
     </div>
   );
