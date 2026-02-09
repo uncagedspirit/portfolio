@@ -30,6 +30,7 @@ function AllProjects() {
           return (
             <div
               key={project.projectId}
+              onClick={() => navigate(`/projects/${project.projectId}`)}
               className="
                 group relative h-72 sm:h-80 
                 bg-slate-200 text-slate-900

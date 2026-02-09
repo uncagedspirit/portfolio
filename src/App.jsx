@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BioSection from "./components/BioSection";
 import RightSection from "./components/RightSection";
 import AllProjects from "./components/AllProjects";
+import ProjectDetail from "./components/ProjectDetail";
 
 function App() {
   const basename = import.meta.env.BASE_URL;
@@ -26,6 +27,7 @@ function App() {
         />
 
         <Route path="/projects" element={<AllProjects />} />
+        <Route path="/projects/:projectId" element={<ProjectDetail />} />
       </Routes>
     </Router>
   );

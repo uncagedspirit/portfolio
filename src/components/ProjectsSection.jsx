@@ -19,6 +19,7 @@ function ProjectsSection() {
             return (
               <div
                 key={index}
+                onClick={() => navigate(`/projects/${project.projectId}`)}
                 className="
                   group relative h-56 sm:h-60 p-4 sm:p-6
                   bg-slate-200 text-slate-900
