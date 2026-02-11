@@ -89,7 +89,7 @@ function BioSection() {
         <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1">
           {skills.map((skill) => (
-            <span key={skill} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-xs sm:text-sm">
+            <span key={skill} className="bg-gray-50 border border-slate-600 px-1.5 py-0.5 rounded-lg text-xs">
               {skill}
             </span>
           ))}
@@ -99,7 +99,7 @@ function BioSection() {
         <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
         <div className="flex flex-wrap gap-1 mb-6 lg:mb-0">
           {languages.map((language) => (
-            <span key={language} className="bg-gray-50 border border-slate-600 px-2 py-1 rounded-xl text-xs sm:text-sm">
+            <span key={language} className="bg-gray-50 border border-slate-600 px-1.5 py-0.5 rounded-lg text-xs">
               {language}
             </span>
           ))}
