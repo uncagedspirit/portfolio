@@ -106,14 +106,14 @@ function ExperienceCard({ exp }) {
               e.stopPropagation();
               navigate(`/experience/${exp.id}`);
             }}
-            className="text-slate-900 font-medium hover:underline hover:text-slate-700 transition-colors"
+            className="text-slate-900 font-semibold text-[14.5px] hover:underline hover:text-slate-700 transition-colors"
           >
             Want to know more about this? →
           </button>
         </p>
       </div>
     </div>
-  );
+  );.5
 }
 
 export default ExperienceCard;

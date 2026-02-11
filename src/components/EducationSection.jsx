@@ -39,3 +39,5 @@ function EducationSection() {
 }
 
 export default EducationSection;
+
+//TODO: stack education cards vertically instead of horizontally on larger screens
