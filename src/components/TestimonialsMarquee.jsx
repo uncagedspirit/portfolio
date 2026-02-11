@@ -8,22 +8,22 @@ function TestimonialsMarquee() {
   return (
     <div className="relative overflow-hidden w-full py-3 sm:py-4">
       {/* Fade edges - narrower on mobile */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-r from-slate-100 to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-l from-slate-100 to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-12 bg-linear-to-r from-slate-100 to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-12 bg-linear-to-l from-slate-100 to-transparent z-10" />
 
       <div className="flex gap-4 sm:gap-6 animate-marquee">
         {tripleTestimonials.map((t, index) => (
           <div
             key={index}
             className="
-              min-w-[240px] sm:min-w-[280px]
+              min-w-60 sm:min-w-70
               bg-slate-200 text-slate-900
               rounded-2xl
               border-t border-l
               border-b-6 border-r-6 border-slate-800
               shadow-lg
               p-3 sm:p-4
-              flex-shrink-0
+              shrink-0
             "
           >
             <p className="text-xs sm:text-sm font-semibold">{t.name}</p>
