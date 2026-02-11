@@ -2,24 +2,28 @@ import React from "react";
 import { testimonials } from "../data/testimonialsData";
 
 function TestimonialsMarquee() {
+  // Triple the testimonials array to ensure seamless looping
+  const tripleTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  
   return (
     <div className="relative overflow-hidden w-full py-3 sm:py-4">
       {/* Fade edges - narrower on mobile */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-12 bg-linear-to-r from-slate-100 to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-12 bg-linear-to-l from-slate-100 to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-r from-slate-100 to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-12 bg-gradient-to-l from-slate-100 to-transparent z-10" />
 
-      <div className="flex w-max animate-marquee gap-4 sm:gap-6">
-        {[...testimonials, ...testimonials].map((t, index) => (
+      <div className="flex gap-4 sm:gap-6 animate-marquee">
+        {tripleTestimonials.map((t, index) => (
           <div
             key={index}
             className="
-              w-60 sm:min-w-70
+              min-w-[240px] sm:min-w-[280px]
               bg-slate-200 text-slate-900
               rounded-2xl
               border-t border-l
               border-b-6 border-r-6 border-slate-800
               shadow-lg
               p-3 sm:p-4
+              flex-shrink-0
             "
           >
             <p className="text-xs sm:text-sm font-semibold">{t.name}</p>
