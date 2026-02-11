@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import profile from "../assets/profile.jpg";
 import { socialData } from "../data/socialData";
 import { profileData } from "../data/profileData";
+import { skillLogos } from "../data/skillLogos";
 import ContactModal from "./ContactModal";
 
 function BioSection() {
@@ -12,6 +13,19 @@ function BioSection() {
   const [phase, setPhase] = useState("typing");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Skill hover logo state
+  const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e, skill) => {
+    if (hoveredSkill === skill) {
+      setMousePos({
+        x: e.clientX,
+        y: e.clientY
+      });
+    }
+  };
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -87,12 +101,42 @@ function BioSection() {
 
         {/* SKILLS */}
         <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 relative">
           {skills.map((skill) => (
-            <span key={skill} className="bg-gray-50 border border-slate-600 px-1.5 py-0.5 rounded-lg text-xs">
+            <span 
+              key={skill} 
+              className="bg-gray-50 border border-slate-600 px-1.5 py-0.5 rounded-lg text-xs cursor-pointer hover:bg-slate-100 transition-colors"
+              onMouseEnter={() => setHoveredSkill(skill)}
+              onMouseLeave={() => setHoveredSkill(null)}
+              onMouseMove={(e) => handleMouseMove(e, skill)}
+            >
               {skill}
             </span>
           ))}
+          
+          {/* Floating skill logo */}
+          {hoveredSkill && skillLogos[hoveredSkill] && (
+            <div
+              className="fixed pointer-events-none z-50"
+              style={{
+                left: `${mousePos.x}px`,
+                top: `${mousePos.y}px`,
+                transform: 'translate(-50%, -50%)'
+              }}
+            >
+              <div className="bg-white rounded-full p-2 shadow-lg border-2 border-slate-300 w-12 h-12 flex items-center justify-center">
+                {skillLogos[hoveredSkill].startsWith('http') ? (
+                  <img 
+                    src={skillLogos[hoveredSkill]} 
+                    alt={hoveredSkill}
+                    className="w-8 h-8 object-contain"
+                  />
+                ) : (
+                  <span className="text-2xl">{skillLogos[hoveredSkill]}</span>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* LANGUAGES */}
