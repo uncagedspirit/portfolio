@@ -8,29 +8,25 @@ function EducationSection() {
         EDUCATION
       </p>
 
-      <div className="w-full lg:w-[85%] flex flex-col gap-3">
+      <div className="w-full lg:w-[85%] flex flex-row gap-3 flex-wrap">
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="bg-slate-200 text-slate-900 rounded-2xl border-b-6 border-r-6 border-t border-l py-4 sm:py-6 border-slate-800 shadow-lg px-3 sm:px-4"
+            className="flex-1 min-w-[140px] bg-slate-200 text-slate-900 rounded-2xl border-b-6 border-r-6 border-t border-l py-4 sm:py-5 px-3 sm:px-4 border-slate-800 shadow-lg"
           >
-            <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-0">
-              <div className="flex-1">
-                <p className="font-semibold text-sm sm:text-base lg:text-lg leading-tight">
-                  {edu.instituteName}
-                </p>
-                <p className="text-xs sm:text-sm text-slate-700">
-                  {edu.level} · {edu.specialization}
-                </p>
-              </div>
-
-              <div className="flex flex-col items-start sm:items-end">
-                <p className="text-xs sm:text-sm text-slate-700">{edu.duration}</p>
-                <p className="text-xs sm:text-sm font-bold text-slate-900">
-                  {edu.scoreLabel}: {edu.scoreValue}
-                </p>
-              </div>
-            </div>
+            <p className="font-semibold text-xs sm:text-sm leading-tight">
+              {edu.instituteName}
+            </p>
+            <p className="text-xs text-slate-700 mt-0.5">
+              {edu.level}
+            </p>
+            <p className="text-xs text-slate-600">
+              {edu.specialization}
+            </p>
+            <p className="text-xs text-slate-600 mt-1">{edu.duration}</p>
+            <p className="text-xs font-bold text-slate-900 mt-1">
+              {edu.scoreLabel}: {edu.scoreValue}
+            </p>
           </div>
         ))}
       </div>
@@ -39,5 +35,3 @@ function EducationSection() {
 }
 
 export default EducationSection;
-
-//TODO: stack education cards vertically instead of horizontally on larger screens
