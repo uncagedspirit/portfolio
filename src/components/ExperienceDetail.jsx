@@ -23,11 +23,10 @@ function ExperienceDetail() {
         </h1>
         <div className="bg-slate-200 rounded-2xl border-b-6 border-r-6 border-t border-l border-slate-800 shadow-lg p-6 sm:p-8">
           <p className="text-lg text-slate-700 mb-4">
-            Coming soon! This will be a detailed blog-style page about experience #{id}.
+            Coming soon! This will be a detailed blog-style page about
+            experience #{id}.
           </p>
-          <p className="text-sm text-slate-600">
-            This page will include:
-          </p>
+          <p className="text-sm text-slate-600">This page will include:</p>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-slate-600">
             <li>Detailed project descriptions and achievements</li>
             <li>Technical challenges and solutions</li>

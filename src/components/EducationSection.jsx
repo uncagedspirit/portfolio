@@ -12,17 +12,13 @@ function EducationSection() {
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="flex-1 min-w-[140px] bg-slate-200 text-slate-900 rounded-2xl border-b-6 border-r-6 border-t border-l py-4 sm:py-5 px-3 sm:px-4 border-slate-800 shadow-lg"
+            className="flex-1 min-w-35 bg-slate-200 text-slate-900 rounded-2xl border-b-6 border-r-6 border-t border-l py-4 sm:py-5 px-3 sm:px-4 border-slate-800 shadow-lg"
           >
             <p className="font-semibold text-xs sm:text-sm leading-tight">
               {edu.instituteName}
             </p>
-            <p className="text-xs text-slate-700 mt-0.5">
-              {edu.level}
-            </p>
-            <p className="text-xs text-slate-600">
-              {edu.specialization}
-            </p>
+            <p className="text-xs text-slate-700 mt-0.5">{edu.level}</p>
+            <p className="text-xs text-slate-600">{edu.specialization}</p>
             <p className="text-xs text-slate-600 mt-1">{edu.duration}</p>
             <p className="text-xs font-bold text-slate-900 mt-1">
               {edu.scoreLabel}: {edu.scoreValue}
