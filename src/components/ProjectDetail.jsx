@@ -2,113 +2,183 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
 
+const Dash = () => <div style={{ borderTop: "2px dashed #94a3b8" }} />;
+
 function ProjectDetail() {
   const { projectId } = useParams();
   const navigate = useNavigate();
-  
-  const project = projects.find(p => p.projectId === parseInt(projectId));
+
+  const project = projects.find((p) => p.projectId === parseInt(projectId));
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-slate-100 px-4 sm:px-8 lg:px-16 py-8 sm:py-10 lg:py-12">
-        <button
-          onClick={() => navigate("/projects")}
-          className="mb-3 sm:mb-4 flex items-center gap-2 text-slate-700 hover:text-slate-900 transition-colors"
+      <div className="min-h-screen bg-slate-50 relative">
+        <div
+          className="pointer-events-none absolute top-0 bottom-0"
+          style={{ left: "15%", borderLeft: "2px dashed #94a3b8" }}
+        />
+        <div
+          className="pointer-events-none absolute top-0 bottom-0"
+          style={{ right: "15%", borderRight: "2px dashed #94a3b8" }}
+        />
+        <div style={{ height: "10vw" }} />
+        <Dash />
+        <div
+          style={{
+            paddingLeft: "calc(15% + 24px)",
+            paddingRight: "calc(15% + 24px)",
+          }}
+          className="py-3"
         >
-          <span className="text-lg sm:text-xl">←</span>
-          <span className="text-sm sm:text-base">Back to Projects</span>
-        </button>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Project not found</h1>
+          <button
+            onClick={() => navigate("/projects")}
+            className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
+          >
+            <span>←</span>
+            <span>back to projects</span>
+          </button>
+        </div>
+        <Dash />
+        <div
+          style={{
+            paddingLeft: "calc(15% + 24px)",
+            paddingRight: "calc(15% + 24px)",
+          }}
+          className="pt-6"
+        >
+          <h1 className="text-2xl font-bold text-slate-900">
+            Project not found
+          </h1>
+        </div>
+        <div style={{ height: "10vw" }} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 px-4 sm:px-8 lg:px-16 py-8 sm:py-10 lg:py-12">
-      {/* Back Button */}
-      <button
-        onClick={() => navigate("/projects")}
-        className="mb-6 sm:mb-8 flex items-center gap-2 text-slate-700 hover:text-slate-900 transition-colors"
-      >
-        <span className="text-lg sm:text-xl">←</span>
-        <span className="text-sm sm:text-base">Back to Projects</span>
-      </button>
+    <div className="min-h-screen bg-slate-50 relative">
+      <div
+        className="pointer-events-none absolute top-0 bottom-0"
+        style={{ left: "15%", borderLeft: "2px dashed #94a3b8" }}
+      />
+      <div
+        className="pointer-events-none absolute top-0 bottom-0"
+        style={{ right: "15%", borderRight: "2px dashed #94a3b8" }}
+      />
 
-      {/* Project Header */}
-      <div className="max-w-4xl">
-        <div className="flex items-center gap-3 mb-4">
+      <div style={{ height: "10vw" }} />
+
+      <Dash />
+
+      <div
+        style={{
+          paddingLeft: "calc(15% + 24px)",
+          paddingRight: "calc(15% + 24px)",
+        }}
+        className="py-3"
+      >
+        <button
+          onClick={() => navigate("/projects")}
+          className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
+        >
+          <span>←</span>
+          <span>back to projects</span>
+        </button>
+      </div>
+
+      <Dash />
+
+      <div
+        style={{
+          paddingLeft: "calc(15% + 24px)",
+          paddingRight: "calc(15% + 24px)",
+        }}
+        className="pt-6 pb-2"
+      >
+        <div className="flex items-center gap-3 mb-2">
           {project.logo && (
             <img
               src={project.logo}
               alt={`${project.title} logo`}
-              className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl object-cover bg-white p-2 border border-slate-300 shadow-md"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover bg-white p-1.5 border border-slate-300 shadow-md"
             />
           )}
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
               {project.title}
             </h1>
-            <p className="text-slate-600 text-sm sm:text-base mt-1">{project.date}</p>
+            <p className="text-slate-500 text-xs sm:text-sm mt-0.5">
+              {project.date}
+            </p>
           </div>
         </div>
-
-        <p className="text-lg sm:text-xl text-slate-700 mb-6">
+        <p className="text-slate-600 text-sm sm:text-base mt-2">
           {project.description}
         </p>
+      </div>
 
-        {/* Tech Stack */}
-        <div className="mb-6">
-          <h2 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">
-            Tech Stack
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {project.techStack?.map((tech) => (
-              <span
-                key={tech}
-                className="bg-slate-200 text-slate-800 border border-slate-400 px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm"
-              >
-                {tech}
-              </span>
-            ))}
+      <div className="pt-4">
+        <Dash />
+      </div>
+
+      <div
+        style={{
+          paddingLeft: "calc(15% + 24px)",
+          paddingRight: "calc(15% + 24px)",
+        }}
+        className="py-8 flex flex-col gap-8"
+      >
+        {project.techStack?.length > 0 && (
+          <div>
+            <p className="text-slate-900 font-semibold text-sm mb-3">
+              TECH STACK
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-slate-200 text-slate-800 border border-slate-400 px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Project Video */}
-        <div className="mb-8">
-          <h2 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">
-            Preview
-          </h2>
+        <div>
+          <p className="text-slate-900 font-semibold text-sm mb-3">PREVIEW</p>
           <video
             src={project.video}
             controls
             loop
             playsInline
-            className="w-full rounded-xl shadow-lg border-2 border-slate-300"
+            className="w-full rounded-2xl shadow-lg border-b-4 border-r-4 border-t border-l border-slate-800"
           />
         </div>
 
-        {/* Project Details */}
-        {project.details && project.details.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">
-              Key Features
-            </h2>
-            <ul className="list-disc pl-5 space-y-2 text-slate-700">
-              {project.details.map((detail, index) => (
-                <li key={index} className="text-sm sm:text-base">{detail}</li>
-              ))}
-            </ul>
+        {project.details?.length > 0 && (
+          <div>
+            <p className="text-slate-900 font-semibold text-sm mb-3">
+              KEY FEATURES
+            </p>
+            <div className="bg-slate-200 rounded-2xl border-b-4 border-r-4 border-t border-l border-slate-800 shadow-md p-4 sm:p-6">
+              <ul className="list-disc pl-5 space-y-2 text-slate-700 text-sm sm:text-base">
+                {project.details.map((detail, index) => (
+                  <li key={index}>{detail}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 sm:gap-4">
+        <div className="flex flex-wrap gap-3">
           {project.liveLink && (
             <a
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-slate-900 text-white rounded-lg font-semibold text-sm sm:text-base border-2 border-slate-900 hover:bg-slate-800 transition-colors shadow-lg"
+              className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-semibold text-sm border-2 border-slate-900 hover:bg-slate-800 transition-colors shadow-md"
             >
               Live Demo →
             </a>
@@ -118,13 +188,17 @@ function ProjectDetail() {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base border-2 border-slate-900 hover:bg-slate-50 transition-colors shadow-lg"
+              className="px-6 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm border-2 border-slate-900 hover:bg-slate-50 transition-colors shadow-md"
             >
               View Code
             </a>
           )}
         </div>
       </div>
+
+      <Dash />
+
+      <div style={{ height: "10vw" }} />
     </div>
   );
 }
