@@ -5,33 +5,34 @@ import RightSection from "./components/RightSection";
 import AllProjects from "./components/AllProjects";
 import ProjectDetail from "./components/ProjectDetail";
 import ExperienceDetail from "./components/ExperienceDetail";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   const basename = import.meta.env.BASE_URL;
-  
-  return (
-    <Router basename={basename}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="flex flex-col lg:flex-row lg:h-screen lg:overflow-hidden">
-              <div className="w-full lg:w-[35%]">
-                <BioSection />
-              </div>
-              
-              <div className="w-full lg:w-[65%] lg:overflow-y-auto lg:thin-amber-scrollbar">
-                <RightSection />
-              </div>
-            </div>
-          }
-        />
 
-        <Route path="/projects" element={<AllProjects />} />
-        <Route path="/projects/:projectId" element={<ProjectDetail />} />
-        <Route path="/experience/:id" element={<ExperienceDetail />} />
-      </Routes>
-    </Router>
+  return (
+    <ThemeProvider>
+      <Router basename={basename}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="flex flex-col lg:flex-row lg:h-screen lg:overflow-hidden">
+                <div className="w-full lg:w-[35%]">
+                  <BioSection />
+                </div>
+                <div className="w-full lg:w-[65%] lg:overflow-y-auto lg:thin-amber-scrollbar">
+                  <RightSection />
+                </div>
+              </div>
+            }
+          />
+          <Route path="/projects" element={<AllProjects />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/experience/:id" element={<ExperienceDetail />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

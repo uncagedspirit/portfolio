@@ -1,57 +1,45 @@
 @import "tailwindcss";
 
+/* Enable dark mode via .dark class on <html> */
+@variant dark (&:where(.dark, .dark *));
+
 /* Tailwind CSS for custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in webkit browsers */
+  display: none;
 }
-
 .custom-scrollbar {
-  -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
-  scrollbar-width: none;     /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-
-/* ===== Thin Amber Scrollbar (NEW – does not affect custom-scrollbar) ===== */
-
-/* Chrome, Edge, Safari */
+/* ===== Thin Amber Scrollbar ===== */
 .thin-amber-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-
 .thin-amber-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .thin-amber-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #94a3b8; /* slate-400 */
+  background-color: #94a3b8;
   border-radius: 9999px;
 }
-
 .thin-amber-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #64748b; /* slate-500 */
+  background-color: #64748b;
 }
-
-/* Firefox */
 .thin-amber-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #94a3b8 transparent;
 }
-   
+
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-33.333333%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.333333%); }
 }
 
 .animate-marquee {
   animation: marquee 10s linear infinite;
 }
-
-/* Pause animation on hover */
 .animate-marquee:hover {
   animation-play-state: paused;
 }

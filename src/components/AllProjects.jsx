@@ -3,12 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
 
 const Dash = () => (
-  <div
-    style={{
-      borderTop: "2px dashed #94a3b8",
-      backgroundImage: "none",
-    }}
-  />
+  <div style={{ borderTop: "2px dashed #94a3b8" }} className="dark:[border-top-color:#52525b]" />
 );
 
 function AllProjects() {
@@ -16,25 +11,18 @@ function AllProjects() {
   const fileFormat = "jpg";
 
   return (
-    <div className="min-h-screen bg-slate-50 relative">
+    <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 relative transition-colors duration-300">
 
-      <div
-        className="pointer-events-none absolute top-0 bottom-0"
-        style={{ left: "15%", borderLeft: "2px dashed #94a3b8" }}
-      />
-      <div
-        className="pointer-events-none absolute top-0 bottom-0"
-        style={{ right: "15%", borderRight: "2px dashed #94a3b8" }}
-      />
+      <div className="pointer-events-none absolute top-0 bottom-0" style={{ left: "15%", borderLeft: "2px dashed #94a3b8" }} />
+      <div className="pointer-events-none absolute top-0 bottom-0" style={{ right: "15%", borderRight: "2px dashed #94a3b8" }} />
 
       <div style={{ height: "10vw" }} />
-
       <Dash />
 
       <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-3">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
+          className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm"
         >
           <span>←</span>
           <span>back to home</span>
@@ -44,10 +32,10 @@ function AllProjects() {
       <Dash />
 
       <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="pt-6 pb-2">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100">
           All Projects
         </h1>
-        <p className="text-slate-600 mt-2 text-sm sm:text-base">
+        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
           Explore all {projects.length} projects
         </p>
       </div>
@@ -56,10 +44,7 @@ function AllProjects() {
         <Dash />
       </div>
 
-      <div
-        style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }}
-        className="py-8"
-      >
+      <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {projects.map((project) => {
             const randomIndex = Math.floor(Math.random() * 15) + 1;
@@ -71,36 +56,26 @@ function AllProjects() {
                 onClick={() => navigate(`/projects/${project.projectId}`)}
                 className="
                   group relative h-72 sm:h-80
-                  bg-slate-200 text-slate-900
+                  bg-slate-200 dark:bg-zinc-800 text-slate-900 dark:text-slate-100
                   rounded-2xl
-                  border-b-6 border-r-6 border-t border-l border-slate-800
+                  border-b-6 border-r-6 border-t border-l border-slate-800 dark:border-zinc-400
                   shadow-lg
                   overflow-hidden
                   cursor-pointer
-                  transition-transform duration-300
+                  transition-all duration-300
                   hover:scale-[1.02]
                 "
               >
                 <div
-                  className="
-                    absolute inset-0 bg-cover bg-center
-                    opacity-0 group-hover:opacity-100
-                    transition-opacity duration-500
-                    scale-100 group-hover:scale-110
-                  "
+                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-100 group-hover:scale-110"
                   style={{ backgroundImage: `url(${backgroundPath})`, zIndex: 0 }}
                 />
                 <div
-                  className="
-                    absolute inset-0
-                    bg-slate-200 group-hover:bg-slate-900/20
-                    transition-all duration-500
-                  "
+                  className="absolute inset-0 bg-slate-200 dark:bg-zinc-800 group-hover:bg-slate-900/20 dark:group-hover:bg-zinc-950/40 transition-all duration-500"
                   style={{ zIndex: 1 }}
                 />
 
                 <div className="relative h-full flex flex-col" style={{ zIndex: 10 }}>
-                  {/* Top Section */}
                   <div className="p-3 sm:p-4 pb-2">
                     <div className="flex items-center gap-2 mb-2">
                       {project.logo && (
@@ -110,27 +85,21 @@ function AllProjects() {
                           className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover bg-white p-1 border border-slate-300 shadow-md"
                         />
                       )}
-                      <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-white drop-shadow-md transition-colors duration-300">
+                      <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-slate-100 group-hover:text-white drop-shadow-md transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
-                    <p className="text-slate-700 text-xs sm:text-sm group-hover:text-white drop-shadow transition-colors duration-300">
+                    <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm group-hover:text-white drop-shadow transition-colors duration-300">
                       {project.description}
                     </p>
-                    <p className="text-xs text-slate-500 group-hover:text-white/80 drop-shadow mt-1 transition-colors duration-300">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-white/80 drop-shadow mt-1 transition-colors duration-300">
                       {project.date}
                     </p>
                     <div className="flex flex-wrap gap-1 mt-2">
                       {project.techStack?.map((tech) => (
                         <span
                           key={tech}
-                          className="
-                            bg-white/70 group-hover:bg-white/90
-                            text-slate-800
-                            border border-slate-400
-                            px-2 py-0.5 rounded-lg text-xs font-medium
-                            transition-all duration-300 shadow-sm
-                          "
+                          className="bg-white/70 dark:bg-zinc-700/80 group-hover:bg-white/90 text-slate-800 dark:text-slate-200 border border-slate-400 dark:border-zinc-500 px-2 py-0.5 rounded-lg text-xs font-medium transition-all duration-300 shadow-sm"
                         >
                           {tech}
                         </span>
@@ -138,7 +107,6 @@ function AllProjects() {
                     </div>
                   </div>
 
-                  {/* Video */}
                   <div className="relative flex-1 p-3 sm:p-4 pt-0">
                     <video
                       src={project.video}
@@ -146,27 +114,17 @@ function AllProjects() {
                       autoPlay
                       loop
                       playsInline
-                      className="
-                        rounded-lg shadow-lg
-                        w-full h-full object-cover
-                        border-2 border-slate-300 group-hover:border-white
-                        transition-all duration-300
-                      "
+                      className="rounded-lg shadow-lg w-full h-full object-cover border-2 border-slate-300 dark:border-zinc-600 group-hover:border-white transition-all duration-300"
                     />
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="p-3 sm:p-4 pt-0 flex items-center justify-center gap-2">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         navigate(`/projects/${project.projectId}`);
                       }}
-                      className="
-                        px-4 py-2 bg-slate-900 text-white rounded-lg
-                        font-semibold text-xs sm:text-sm border-2 border-slate-900
-                        hover:bg-slate-800 transition-colors shadow-md
-                      "
+                      className="px-4 py-2 bg-slate-900 dark:bg-zinc-200 text-white dark:text-zinc-900 rounded-lg font-semibold text-xs sm:text-sm border-2 border-slate-900 dark:border-zinc-200 hover:bg-slate-800 dark:hover:bg-zinc-300 transition-colors shadow-md"
                     >
                       Details
                     </button>
@@ -176,11 +134,7 @@ function AllProjects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="
-                          px-3 py-2 bg-white text-slate-900 rounded-lg
-                          font-semibold text-xs sm:text-sm border border-slate-400
-                          hover:bg-slate-100 transition-colors shadow-md
-                        "
+                        className="px-3 py-2 bg-white dark:bg-zinc-800 text-slate-900 dark:text-slate-200 rounded-lg font-semibold text-xs sm:text-sm border border-slate-400 dark:border-zinc-500 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors shadow-md"
                       >
                         Live
                       </a>
@@ -191,11 +145,7 @@ function AllProjects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="
-                          px-3 py-2 bg-white text-slate-900 rounded-lg
-                          font-semibold text-xs sm:text-sm border border-slate-400
-                          hover:bg-slate-100 transition-colors shadow-md
-                        "
+                        className="px-3 py-2 bg-white dark:bg-zinc-800 text-slate-900 dark:text-slate-200 rounded-lg font-semibold text-xs sm:text-sm border border-slate-400 dark:border-zinc-500 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors shadow-md"
                       >
                         Code
                       </a>
@@ -209,9 +159,7 @@ function AllProjects() {
       </div>
 
       <Dash />
-
       <div style={{ height: "10vw" }} />
-
     </div>
   );
 }
