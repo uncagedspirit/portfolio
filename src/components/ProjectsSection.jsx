@@ -8,7 +8,7 @@ function ProjectsSection() {
 
   return (
     <div>
-      <p className="text-slate-900 dark:text-slate-200 mt-6 sm:mt-8 mb-2 font-semibold text-sm">PROJECTS</p>
+      <p className="text-slate-900 dark:text-slate-200 mb-2 font-semibold text-sm tracking-wide">PROJECTS</p>
 
       <div className="w-full lg:w-[90%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">

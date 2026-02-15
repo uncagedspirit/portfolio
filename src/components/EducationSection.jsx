@@ -4,7 +4,7 @@ import educationData from "../data/educationData";
 function EducationSection() {
   return (
     <>
-      <p className="text-slate-900 dark:text-slate-200 mt-6 sm:mt-8 mb-2 font-semibold text-sm">
+      <p className="text-slate-900 dark:text-slate-200 mb-2 font-semibold text-sm tracking-wide">
         EDUCATION
       </p>
 
