@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
 
-const Dash = () => <div style={{ borderTop: "2px dashed #94a3b8" }} className="dark:[border-top-color:#52525b]" />;
+const Dash = () => <div style={{ borderTop: "2px dashed #94a3b8" }} className="dark:[border-t:#52525b]" />;
 
 function ProjectDetail() {
   const { projectId } = useParams();
