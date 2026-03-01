@@ -4,13 +4,31 @@ import brainwaveLogo from "../assets/project logos/brainwave-symbol.svg";
 import ochiVideo from "../assets/project recordings/ochi.webm"; 
 import ochiLogo from "../assets/project logos/ochi.png"; 
 
-import framehuntVideo from "../assets/project recordings/framehunt.webm"; 
+import framehuntVideo from "../assets/project recordings/framehunt2.webm"; 
 import framehuntLogo from "../assets/project logos/framehunt.jpg";
 
 
 export const projects = [
   {
     projectId: 0,
+    title: "FrameVerse",
+    description: "Webapp for selling photo frames for a local business.",
+    video: framehuntVideo,
+    date: "Dec 2026- Jan 2026",
+    techStack: ["React.js", "JavaScript", "TailwindCSS", "Brevo API", "Supabase", "Payment Gateway"],
+    githubLink: "https://github.com/uncagedspirit/frame-app",
+    liveLink: "https://frameverse.netlify.app/",
+    logo: framehuntLogo,
+    details: [
+      "Product listing and detail views",
+      "Optimized for fast load times",
+      "Mobile-responsive design",
+      "Integrated with Brevo for mailing",
+      "Supabase for email and database management"
+    ]
+  },
+  {
+    projectId: 1,
     title: "BrainWave",
     description: "A landing page for AI chatting App.",
     video: brainwaveVideo,
@@ -27,7 +45,7 @@ export const projects = [
     ]
   },
   {
-    projectId: 1,
+    projectId: 2,
     title: "Ochi",
     description: "A designer landing page for presentation agency.",
     video: ochiVideo,
@@ -43,21 +61,4 @@ export const projects = [
       "Clean and minimal design system"
     ]
   },
-  {
-    projectId: 2,
-    title: "FrameHunt",
-    description: "Webapp for selling photo frames for a local business.",
-    video: framehuntVideo,
-    date: "Dec 2026- Jan 2026",
-    techStack: ["React.js", "JavaScript", "TailwindCSS"],
-    githubLink: "https://github.com/uncagedspirit/frame-app",
-    liveLink: "https://framehunt.netlify.app/",
-    logo: framehuntLogo,
-    details: [
-      "Product listing and detail views",
-      "Simple and user-friendly UI",
-      "Optimized for fast load times",
-      "Mobile-responsive design"
-    ]
-  }
 ];
