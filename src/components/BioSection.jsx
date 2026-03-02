@@ -4,25 +4,19 @@ import { socialData } from "../data/socialData";
 import { profileData } from "../data/profileData";
 import { skillLogos } from "../data/skillLogos";
 import ContactModal from "./ContactModal";
-import { useTheme } from "../context/ThemeContext";
 
 function BioSection() {
   const { name, email, about, roles, skills, languages } = profileData;
-  // const { isDark, toggleTheme } = useTheme();
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [phase, setPhase] = useState("typing");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e, skill) => {
-    if (hoveredSkill === skill) {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    }
+    if (hoveredSkill === skill) setMousePos({ x: e.clientX, y: e.clientY });
   };
 
   useEffect(() => {
@@ -30,18 +24,14 @@ function BioSection() {
     let timeout;
     if (phase === "typing") {
       if (displayedText.length < current.length) {
-        timeout = setTimeout(() => {
-          setDisplayedText(current.slice(0, displayedText.length + 1));
-        }, 100);
+        timeout = setTimeout(() => setDisplayedText(current.slice(0, displayedText.length + 1)), 100);
       } else {
         timeout = setTimeout(() => setPhase("deleting"), 1500);
       }
     }
     if (phase === "deleting") {
       if (displayedText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayedText(current.slice(0, displayedText.length - 1));
-        }, 60);
+        timeout = setTimeout(() => setDisplayedText(current.slice(0, displayedText.length - 1)), 60);
       } else {
         setPhase("typing");
         setRoleIndex((prev) => (prev + 1) % roles.length);
@@ -51,60 +41,40 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 bg-white h-full flex flex-col lg:border-r-2 lg:border-(--cards-border)  transition-colors duration-300">
-
+    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 pf-bg-bio h-full flex flex-col lg:border-r-2 lg:border-(--cards-border) transition-colors duration-300">
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-      {/* Theme Toggle */}
-      <div className="flex justify-end mb-2">
-        {/* <button
-          onClick={toggleTheme}
-          className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-300  bg-white  text-slate-700  hover:bg-slate-100  transition-all duration-300 shadow-sm text-base"
-          // title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {isDark ? "☀" : "☾"}
-        </button> */}
-      </div>
+      {/* spacer where theme toggle was */}
+      <div className="mb-2" />
 
       <div className="flex-1">
         <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4">
           <img src={profile} alt="profile" className="w-full h-full object-cover" />
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-semibold text-(--highlight) ">{name}</h1>
-        <p className="text-(--highlight) mb-4 h-6 text-sm sm:text-base">
-          {displayedText} <span className="animate-pulse">|</span>
+        <h1 className="pf-name text-xl sm:text-2xl">{name}</h1>
+        <p className="pf-role mb-4 text-sm sm:text-base">
+          {displayedText}<span className="animate-pulse">|</span>
         </p>
 
         {/* ABOUT */}
-        <p className="text-(--highlight)  mt-6 sm:mt-8 mb-2 font-semibold text-sm">ABOUT</p>
-        <p className="text-sm sm:text-base text-(--highlight)">{about}</p>
+        <p className="pf-section-label mt-6 sm:mt-8">ABOUT</p>
+        <p className="pf-body text-sm sm:text-base">{about}</p>
 
         {/* CONTACT */}
         <div className="flex items-center gap-2 mt-6 sm:mt-8 mb-2">
-          <p className="text-(--highlight)  font-semibold text-sm">CONTACT</p>
-          <button
-            className="
-              w-7 h-7 text-2xl flex items-center justify-center px-1 pb-1
-              border border-(--highlight)  rounded-full
-              text-(--highlight-light) 
-              transition-colors duration-300
-              hover:bg-(--highlight) hover:text-white hover:border-(--highlight-light) 
-            "
-            onClick={() => setIsModalOpen(true)}
-          >
-            ↗
-          </button>
+          <p className="pf-section-label mb-0">CONTACT</p>
+          <button className="pf-contact-btn" onClick={() => setIsModalOpen(true)}>↗</button>
         </div>
-        <p className="text-sm sm:text-base break-all text-(--highlight) ">email: {email}</p>
+        <p className="pf-body text-sm sm:text-base break-all">email: {email}</p>
 
         {/* SKILLS */}
-        <p className="text-slate-900  mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
+        <p className="pf-section-label mt-6 sm:mt-8">SKILLS</p>
         <div className="flex flex-wrap gap-1 relative">
           {skills.map((skill) => (
             <span
               key={skill}
-              className="bg-(--highlight-light) border border-(--highlight) px-1.5 py-0.5 rounded-lg text-xs cursor-pointer hover:bg-white transition-colors text-(--highlight)"
+              className="pf-skill-pill"
               onMouseEnter={() => setHoveredSkill(skill)}
               onMouseLeave={() => setHoveredSkill(null)}
               onMouseMove={(e) => handleMouseMove(e, skill)}
@@ -115,33 +85,29 @@ function BioSection() {
 
           {hoveredSkill && skillLogos[hoveredSkill] && (
             <div
-              className="fixed pointer-events-none z-50"
+              className="fixed pointer-events-none z-50 pf-tooltip-card"
               style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px`, transform: "translate(-50%, -50%)" }}
             >
-              <div className="bg-white rounded-full p-2 shadow-lg border-2 border-(--highlight) w-12 h-12 flex items-center justify-center">
-                {skillLogos[hoveredSkill].startsWith("http") ? (
-                  <img src={skillLogos[hoveredSkill]} alt={hoveredSkill} className="w-8 h-8 object-contain" />
-                ) : (
-                  <span className="text-2xl">{skillLogos[hoveredSkill]}</span>
-                )}
-              </div>
+              {skillLogos[hoveredSkill].startsWith("http") ? (
+                <img src={skillLogos[hoveredSkill]} alt={hoveredSkill} className="w-8 h-8 object-contain" />
+              ) : (
+                <span className="text-2xl">{skillLogos[hoveredSkill]}</span>
+              )}
             </div>
           )}
         </div>
 
         {/* LANGUAGES */}
-        <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
+        <p className="pf-section-label mt-6 sm:mt-8">LANGUAGES</p>
         <div className="flex flex-wrap gap-1 mb-6 lg:mb-0">
           {languages.map((language) => (
-            <span key={language} className="bg-white border border-(--highlight) px-1.5 py-0.5 rounded-lg text-xs text-(--highlight)">
-              {language}
-            </span>
+            <span key={language} className="pf-lang-tag">{language}</span>
           ))}
         </div>
       </div>
 
       {/* Social Links */}
-      <div className="mt-6 mb-6 lg:mb-0 bg-(--cards-bg) p-3 sm:p-4 rounded-2xl border-t border-l border-b-4 border-r-4 border-(--cards-border) shadow-lg transition-colors duration-300">
+      <div className="mt-6 mb-6 lg:mb-0 pf-social-container transition-colors duration-300">
         <div className="flex justify-between items-center">
           {socialData.map((social, index) => {
             let tooltipPosition = "";
@@ -157,12 +123,10 @@ function BioSection() {
                   className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition-opacity"
                   onClick={() => window.open(social.link, "_blank", "noopener,noreferrer")}
                 />
-                <div
-                  className={`hidden lg:block absolute bottom-full mb-2 ${tooltipPosition}
+                <div className={`hidden lg:block absolute bottom-full mb-2 ${tooltipPosition}
                     bg-white border border-slate-400 rounded-lg p-3 shadow-xl w-52
                     invisible opacity-0 group-hover:visible group-hover:opacity-100
-                    transition-all duration-200 pointer-events-none z-10`}
-                >
+                    transition-all duration-200 pointer-events-none z-10`}>
                   <div className="flex items-center gap-3">
                     <img src={social.profileImg} alt={`${social.name} profile`} className="w-10 h-10 rounded-full object-cover" />
                     <div>

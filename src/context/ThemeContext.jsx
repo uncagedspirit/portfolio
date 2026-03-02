@@ -1,27 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 
 const ThemeContext = createContext();
 
+// Dark mode removed. ThemeProvider kept as a no-op wrapper
+// so nothing breaks if it's still imported in App.jsx.
 export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{}}>
       {children}
     </ThemeContext.Provider>
   );

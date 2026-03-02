@@ -13,51 +13,33 @@ function ExperienceCard({ exp }) {
   return (
     <div
       onClick={() => setOpen(!open)}
-      className="bg-(--cards-bg) text-(--highlight) rounded-2xl border-b-6 border-r-6 border-t border-l border-(--cards-border) shadow-lg p-3 sm:p-4 cursor-pointer select-none transition-colors duration-300"
+      className="pf-card p-3 sm:p-4 cursor-pointer select-none transition-colors duration-300"
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex gap-2 sm:gap-3 flex-1 min-w-0">
           <img
             src={exp.logo}
             alt={`${exp.company} logo`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (exp.site) window.open(exp.site, "_blank", "noopener,noreferrer");
-            }}
-            className={`w-10 h-10 sm:w-12 sm:h-12 object-cover p-1 rounded-lg bg-slate-100 dark:bg-zinc-700 border border-(--main) shrink-0 ${
-              exp.site ? "cursor-pointer hover:scale-105 transition-transform" : ""
-            }`}
+            onClick={(e) => { e.stopPropagation(); if (exp.site) window.open(exp.site, "_blank", "noopener,noreferrer"); }}
+            className={`w-10 h-10 sm:w-12 sm:h-12 object-cover p-1 rounded-lg bg-slate-100 border border-(--main) shrink-0 ${exp.site ? "cursor-pointer hover:scale-105 transition-transform" : ""}`}
           />
           <div className="min-w-0 flex-1">
-            <p className="text-(--main) font-semibold text-sm sm:text-base lg:text-lg leading-tight truncate">
-              {exp.company}
-            </p>
-            <p className="text-xs sm:text-sm text-(--main) truncate">{exp.role}</p>
+            <p className="pf-heading-sm leading-tight truncate">{exp.company}</p>
+            <p className="pf-muted truncate">{exp.role}</p>
           </div>
         </div>
 
         <div className="flex flex-col items-end shrink-0">
           <div className="flex items-center gap-1 sm:gap-2">
-            <p className="text-xs sm:text-sm text-slate-700 whitespace-nowrap">{exp.duration}</p>
-            <span className={`transition-transform duration-300 text-sm text-slate-700 ${open ? "rotate-180" : ""}`}>
-              ▼
-            </span>
+            <p className="pf-muted whitespace-nowrap">{exp.duration}</p>
+            <span className={`transition-transform duration-300 text-sm pf-text-muted ${open ? "rotate-180" : ""}`}>▼</span>
           </div>
-
-          <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 relative whitespace-nowrap">
+          <p className="pf-muted relative whitespace-nowrap">
             {exp.workType} ·{" "}
             <span
-              onMouseEnter={() => {
-                hoverTimeout = setTimeout(() => {
-                  fetchImages(exp.locationImages);
-                  setShowBubble(true);
-                }, 300);
-              }}
-              onMouseLeave={() => {
-                clearTimeout(hoverTimeout);
-                setShowBubble(false);
-              }}
-              className="relative text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-300 cursor-pointer transition-all duration-200 hover:underline hover:text-slate-900 dark:hover:text-slate-100 border-b border-dotted border-slate-900 dark:border-slate-400"
+              onMouseEnter={() => { hoverTimeout = setTimeout(() => { fetchImages(exp.locationImages); setShowBubble(true); }, 300); }}
+              onMouseLeave={() => { clearTimeout(hoverTimeout); setShowBubble(false); }}
+              className="relative cursor-pointer transition-all duration-200 hover:underline pf-text-body border-b border-dotted border-(--border-strong)"
             >
               {exp.location}
               {showBubble && (
@@ -72,33 +54,18 @@ function ExperienceCard({ exp }) {
 
       <div className="flex flex-wrap gap-0.5 mt-2 sm:mt-3">
         {exp.techStack?.map((tech) => (
-          <span
-            key={tech}
-            className="bg-gray-50 dark:bg-zinc-700 border border-slate-600 dark:border-zinc-500 px-1 py-0.5 rounded-lg text-xs text-slate-800 dark:text-slate-200"
-          >
-            {tech}
-          </span>
+          <span key={tech} className="pf-tech-tag">{tech}</span>
         ))}
       </div>
 
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-96 mt-2 sm:mt-3" : "max-h-0"
-        }`}
-      >
-        <ul className="list-disc pl-4 sm:pl-5 text-xs sm:text-sm space-y-1 text-slate-700 dark:text-slate-300">
-          {exp.points.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-96 mt-2 sm:mt-3" : "max-h-0"}`}>
+        <ul className="list-disc pl-4 sm:pl-5 text-xs sm:text-sm space-y-1 pf-text-body">
+          {exp.points.map((point, index) => <li key={index}>{point}</li>)}
         </ul>
-
-        <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-3 text-xs sm:text-sm pf-text-muted">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate(`/experience/${exp.id}`);
-            }}
-            className="text-slate-900 dark:text-slate-200 font-semibold text-[14.5px] hover:underline hover:text-slate-700 dark:hover:text-slate-400 transition-colors"
+            onClick={(e) => { e.stopPropagation(); navigate(`/experience/${exp.id}`); }}
+            className="pf-text-primary font-semibold text-[14.5px] hover:underline transition-colors"
           >
             Want to know more about this? →
           </button>
