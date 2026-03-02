@@ -10,7 +10,7 @@
 
 :root {
   /* ── THE ONE VARIABLE ── */
-  --brand-hue: 0;
+  --brand-hue: 250;
 
   /* ── DERIVED COLORS — do not edit, change --brand-hue above ── */
 
