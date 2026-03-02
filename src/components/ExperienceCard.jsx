@@ -13,7 +13,7 @@ function ExperienceCard({ exp }) {
   return (
     <div
       onClick={() => setOpen(!open)}
-      className="bg-slate-200 dark:bg-zinc-800 text-slate-900 dark:text-slate-100 rounded-2xl border-b-6 border-r-6 border-t border-l border-slate-800 dark:border-zinc-400 shadow-lg p-3 sm:p-4 cursor-pointer select-none transition-colors duration-300"
+      className="bg-(--cards-bg) text-(--highlight) rounded-2xl border-b-6 border-r-6 border-t border-l border-(--cards-border) shadow-lg p-3 sm:p-4 cursor-pointer select-none transition-colors duration-300"
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex gap-2 sm:gap-3 flex-1 min-w-0">
@@ -24,22 +24,22 @@ function ExperienceCard({ exp }) {
               e.stopPropagation();
               if (exp.site) window.open(exp.site, "_blank", "noopener,noreferrer");
             }}
-            className={`w-10 h-10 sm:w-12 sm:h-12 object-cover p-1 rounded-lg bg-slate-100 dark:bg-zinc-700 border border-slate-500 dark:border-zinc-500 shrink-0 ${
+            className={`w-10 h-10 sm:w-12 sm:h-12 object-cover p-1 rounded-lg bg-slate-100 dark:bg-zinc-700 border border-(--main) shrink-0 ${
               exp.site ? "cursor-pointer hover:scale-105 transition-transform" : ""
             }`}
           />
           <div className="min-w-0 flex-1">
-            <p className="font-semibold text-sm sm:text-base lg:text-lg leading-tight truncate text-slate-900 dark:text-slate-100">
+            <p className="text-(--main) font-semibold text-sm sm:text-base lg:text-lg leading-tight truncate">
               {exp.company}
             </p>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-400 truncate">{exp.role}</p>
+            <p className="text-xs sm:text-sm text-(--main) truncate">{exp.role}</p>
           </div>
         </div>
 
         <div className="flex flex-col items-end shrink-0">
           <div className="flex items-center gap-1 sm:gap-2">
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-400 whitespace-nowrap">{exp.duration}</p>
-            <span className={`transition-transform duration-300 text-sm text-slate-700 dark:text-slate-400 ${open ? "rotate-180" : ""}`}>
+            <p className="text-xs sm:text-sm text-slate-700 whitespace-nowrap">{exp.duration}</p>
+            <span className={`transition-transform duration-300 text-sm text-slate-700 ${open ? "rotate-180" : ""}`}>
               ▼
             </span>
           </div>

@@ -1,9 +1,10 @@
 @import "tailwindcss";
-@import "./theme.css";
+@import "./variables.css";
 
 /* Enable dark mode via .dark class on <html> */
 @variant dark (&:where(.dark, .dark *));
 
+/* Tailwind CSS for custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -12,7 +13,7 @@
   scrollbar-width: none;
 }
 
-/* ===== Orange Scrollbar ===== */
+/* ===== Thin Amber Scrollbar ===== */
 .thin-amber-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -21,19 +22,19 @@
   background: transparent;
 }
 .thin-amber-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #FC6E20;
+  background-color: #94a3b8;
   border-radius: 9999px;
 }
 .thin-amber-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #e05b12;
+  background-color: #64748b;
 }
 .thin-amber-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #FC6E20 transparent;
+  scrollbar-color: #94a3b8 transparent;
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0%); }
+  0% { transform: translateX(0%); }
   100% { transform: translateX(-33.333333%); }
 }
 

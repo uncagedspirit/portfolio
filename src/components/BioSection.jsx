@@ -8,7 +8,7 @@ import { useTheme } from "../context/ThemeContext";
 
 function BioSection() {
   const { name, email, about, roles, skills, languages } = profileData;
-  const { isDark, toggleTheme } = useTheme();
+  // const { isDark, toggleTheme } = useTheme();
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -51,19 +51,19 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 bg-slate-50 dark:bg-zinc-950 h-full flex flex-col lg:border-r-2 lg:border-slate-900 dark:lg:border-zinc-700 transition-colors duration-300">
+    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 bg-white h-full flex flex-col lg:border-r-2 lg:border-(--cards-border)  transition-colors duration-300">
 
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* Theme Toggle */}
       <div className="flex justify-end mb-2">
-        <button
+        {/* <button
           onClick={toggleTheme}
-          className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-all duration-300 shadow-sm text-base"
-          title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-300  bg-white  text-slate-700  hover:bg-slate-100  transition-all duration-300 shadow-sm text-base"
+          // title={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
           {isDark ? "☀" : "☾"}
-        </button>
+        </button> */}
       </div>
 
       <div className="flex-1">
@@ -71,40 +71,40 @@ function BioSection() {
           <img src={profile} alt="profile" className="w-full h-full object-cover" />
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">{name}</h1>
-        <p className="text-gray-700 dark:text-slate-400 mb-4 h-6 text-sm sm:text-base">
+        <h1 className="text-xl sm:text-2xl font-semibold text-(--highlight) ">{name}</h1>
+        <p className="text-(--highlight) mb-4 h-6 text-sm sm:text-base">
           {displayedText} <span className="animate-pulse">|</span>
         </p>
 
         {/* ABOUT */}
-        <p className="text-slate-900 dark:text-slate-200 mt-6 sm:mt-8 mb-2 font-semibold text-sm">ABOUT</p>
-        <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300">{about}</p>
+        <p className="text-(--highlight)  mt-6 sm:mt-8 mb-2 font-semibold text-sm">ABOUT</p>
+        <p className="text-sm sm:text-base text-(--highlight)">{about}</p>
 
         {/* CONTACT */}
         <div className="flex items-center gap-2 mt-6 sm:mt-8 mb-2">
-          <p className="text-slate-900 dark:text-slate-200 font-semibold text-sm">CONTACT</p>
+          <p className="text-(--highlight)  font-semibold text-sm">CONTACT</p>
           <button
             className="
               w-7 h-7 text-2xl flex items-center justify-center px-1 pb-1
-              border border-slate-900 dark:border-zinc-500 rounded-full
-              text-slate-900 dark:text-slate-200
+              border border-(--highlight)  rounded-full
+              text-(--highlight-light) 
               transition-colors duration-300
-              hover:bg-slate-900 dark:hover:bg-zinc-200 hover:text-slate-300 dark:hover:text-zinc-900 hover:border-slate-300 dark:hover:border-zinc-200
+              hover:bg-(--highlight) hover:text-white hover:border-(--highlight-light) 
             "
             onClick={() => setIsModalOpen(true)}
           >
             ↗
           </button>
         </div>
-        <p className="text-sm sm:text-base break-all text-slate-700 dark:text-slate-300">email: {email}</p>
+        <p className="text-sm sm:text-base break-all text-(--highlight) ">email: {email}</p>
 
         {/* SKILLS */}
-        <p className="text-slate-900 dark:text-slate-200 mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
+        <p className="text-slate-900  mt-6 sm:mt-8 mb-2 font-semibold text-sm">SKILLS</p>
         <div className="flex flex-wrap gap-1 relative">
           {skills.map((skill) => (
             <span
               key={skill}
-              className="bg-gray-50 dark:bg-zinc-800 border border-slate-600 dark:border-zinc-500 px-1.5 py-0.5 rounded-lg text-xs cursor-pointer hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors text-slate-800 dark:text-slate-200"
+              className="bg-(--highlight-light) border border-(--highlight) px-1.5 py-0.5 rounded-lg text-xs cursor-pointer hover:bg-white transition-colors text-(--highlight)"
               onMouseEnter={() => setHoveredSkill(skill)}
               onMouseLeave={() => setHoveredSkill(null)}
               onMouseMove={(e) => handleMouseMove(e, skill)}
@@ -118,7 +118,7 @@ function BioSection() {
               className="fixed pointer-events-none z-50"
               style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px`, transform: "translate(-50%, -50%)" }}
             >
-              <div className="bg-white dark:bg-zinc-800 rounded-full p-2 shadow-lg border-2 border-slate-300 dark:border-zinc-500 w-12 h-12 flex items-center justify-center">
+              <div className="bg-white rounded-full p-2 shadow-lg border-2 border-(--highlight) w-12 h-12 flex items-center justify-center">
                 {skillLogos[hoveredSkill].startsWith("http") ? (
                   <img src={skillLogos[hoveredSkill]} alt={hoveredSkill} className="w-8 h-8 object-contain" />
                 ) : (
@@ -130,10 +130,10 @@ function BioSection() {
         </div>
 
         {/* LANGUAGES */}
-        <p className="text-slate-900 dark:text-slate-200 mt-6 sm:mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
+        <p className="text-slate-900 mt-6 sm:mt-8 mb-2 font-semibold text-sm">LANGUAGES</p>
         <div className="flex flex-wrap gap-1 mb-6 lg:mb-0">
           {languages.map((language) => (
-            <span key={language} className="bg-gray-50 dark:bg-zinc-800 border border-slate-600 dark:border-zinc-500 px-1.5 py-0.5 rounded-lg text-xs text-slate-800 dark:text-slate-200">
+            <span key={language} className="bg-white border border-(--highlight) px-1.5 py-0.5 rounded-lg text-xs text-(--highlight)">
               {language}
             </span>
           ))}
@@ -141,7 +141,7 @@ function BioSection() {
       </div>
 
       {/* Social Links */}
-      <div className="mt-6 mb-6 lg:mb-0 bg-slate-200 dark:bg-zinc-800 p-3 sm:p-4 rounded-2xl border-t border-l border-b-4 border-r-4 border-slate-800 dark:border-zinc-500 shadow-lg transition-colors duration-300">
+      <div className="mt-6 mb-6 lg:mb-0 bg-(--cards-bg) p-3 sm:p-4 rounded-2xl border-t border-l border-b-4 border-r-4 border-(--cards-border) shadow-lg transition-colors duration-300">
         <div className="flex justify-between items-center">
           {socialData.map((social, index) => {
             let tooltipPosition = "";
@@ -154,23 +154,23 @@ function BioSection() {
                 <img
                   src={social.icon}
                   alt={social.name}
-                  className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition-opacity dark:invert dark:brightness-90"
+                  className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition-opacity"
                   onClick={() => window.open(social.link, "_blank", "noopener,noreferrer")}
                 />
                 <div
                   className={`hidden lg:block absolute bottom-full mb-2 ${tooltipPosition}
-                    bg-white dark:bg-zinc-800 border border-slate-400 dark:border-zinc-600 rounded-lg p-3 shadow-xl w-52
+                    bg-white border border-slate-400 rounded-lg p-3 shadow-xl w-52
                     invisible opacity-0 group-hover:visible group-hover:opacity-100
                     transition-all duration-200 pointer-events-none z-10`}
                 >
                   <div className="flex items-center gap-3">
                     <img src={social.profileImg} alt={`${social.name} profile`} className="w-10 h-10 rounded-full object-cover" />
                     <div>
-                      <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{social.username}</p>
-                      <p className="text-xs text-gray-600 dark:text-slate-400">{social.metaValue} {social.metaLabel}</p>
+                      <p className="font-semibold text-sm text-slate-900">{social.username}</p>
+                      <p className="text-xs text-gray-600">{social.metaValue} {social.metaLabel}</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-700 dark:text-slate-300 mt-3">{social.bio}</p>
+                  <p className="text-xs text-gray-700 mt-3">{social.bio}</p>
                 </div>
               </div>
             );
