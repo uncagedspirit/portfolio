@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "./styles/portfolio-theme.css";
 
-/* Enable Tailwind dark variant (kept for reference — no dark: classes in project) */
-/* @variant dark (&:where(.dark, .dark *)); */
-
 /* ─── Scrollbar (right panel) ─── */
 .custom-scrollbar::-webkit-scrollbar { display: none; }
 .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -11,7 +8,7 @@
 .thin-amber-scrollbar::-webkit-scrollbar       { width: 6px; height: 6px; }
 .thin-amber-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .thin-amber-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--c-primary-light); border-radius: 9999px;
+  background-color: var(--teal-light); border-radius: 9999px;
 }
-.thin-amber-scrollbar::-webkit-scrollbar-thumb:hover { background-color: var(--c-primary-mid); }
-.thin-amber-scrollbar { scrollbar-width: thin; scrollbar-color: var(--c-primary-light) transparent; }
+.thin-amber-scrollbar::-webkit-scrollbar-thumb:hover { background-color: var(--burgundy); }
+.thin-amber-scrollbar { scrollbar-width: thin; scrollbar-color: var(--teal-light) transparent; }

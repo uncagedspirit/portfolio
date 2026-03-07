@@ -41,32 +41,34 @@ function BioSection() {
   }, [displayedText, phase, roleIndex, roles]);
 
   return (
-    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 pf-bg-bio h-full flex flex-col lg:border-r-2 lg:border-(--cards-border) transition-colors duration-300">
+    <div className="px-6 sm:px-8 lg:px-10 pt-8 lg:pt-12 pf-bg-bio h-full flex flex-col lg:border-r-2 lg:border-teal-900 transition-colors duration-300">
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-      {/* spacer where theme toggle was */}
-      <div className="mb-2" />
-
       <div className="flex-1">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F4EDE4]/40">
           <img src={profile} alt="profile" className="w-full h-full object-cover" />
         </div>
 
+        {/* Name — burgundy, always */}
         <h1 className="pf-name text-xl sm:text-2xl">{name}</h1>
-        <p className="pf-role mb-4 text-sm sm:text-base">
+
+        {/* Role — cream/muted on dark teal */}
+        <p className="mb-4 text-sm sm:text-base" style={{ color: "rgba(244,237,228,0.65)", minHeight: "1.5rem" }}>
           {displayedText}<span className="animate-pulse">|</span>
         </p>
 
         {/* ABOUT */}
         <p className="pf-section-label mt-6 sm:mt-8">ABOUT</p>
-        <p className="pf-body text-sm sm:text-base">{about}</p>
+        <p className="text-sm sm:text-base leading-relaxed" style={{ color: "#F4EDE4" }}>{about}</p>
 
         {/* CONTACT */}
         <div className="flex items-center gap-2 mt-6 sm:mt-8 mb-2">
           <p className="pf-section-label mb-0">CONTACT</p>
           <button className="pf-contact-btn" onClick={() => setIsModalOpen(true)}>↗</button>
         </div>
-        <p className="pf-body text-sm sm:text-base break-all">email: {email}</p>
+        <p className="text-sm sm:text-base break-all" style={{ color: "rgba(244,237,228,0.80)" }}>
+          email: {email}
+        </p>
 
         {/* SKILLS */}
         <p className="pf-section-label mt-6 sm:mt-8">SKILLS</p>
@@ -106,8 +108,8 @@ function BioSection() {
         </div>
       </div>
 
-      {/* Social Links */}
-      <div className="mt-6 mb-6 lg:mb-0 pf-social-container transition-colors duration-300">
+      {/* Social Links — cream background so logos stay visible */}
+      <div className="mt-6 mb-6 lg:mb-0 pf-social-container">
         <div className="flex justify-between items-center">
           {socialData.map((social, index) => {
             let tooltipPosition = "";
@@ -117,6 +119,7 @@ function BioSection() {
 
             return (
               <div key={social.key} className="relative group">
+                {/* No filter — logos shown in natural brand colors on cream bg */}
                 <img
                   src={social.icon}
                   alt={social.name}
@@ -124,7 +127,7 @@ function BioSection() {
                   onClick={() => window.open(social.link, "_blank", "noopener,noreferrer")}
                 />
                 <div className={`hidden lg:block absolute bottom-full mb-2 ${tooltipPosition}
-                    bg-white border border-slate-400 rounded-lg p-3 shadow-xl w-52
+                    bg-white border border-slate-200 rounded-lg p-3 shadow-xl w-52
                     invisible opacity-0 group-hover:visible group-hover:opacity-100
                     transition-all duration-200 pointer-events-none z-10`}>
                   <div className="flex items-center gap-3">
