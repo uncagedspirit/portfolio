@@ -1,14 +1,52 @@
 @import "tailwindcss";
 @import "./styles/portfolio-theme.css";
 
-/* ─── Scrollbar (right panel) ─── */
+/* ─── Hide default scrollbar arrows, custom teal thumb ─── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #003740 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #003740;
+  border-radius: 9999px;
+  border: none;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #710117;
+}
+
+/* Remove arrows/buttons entirely */
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ─── Right panel named scrollbar (keeps same style) ─── */
 .custom-scrollbar::-webkit-scrollbar { display: none; }
 .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-.thin-amber-scrollbar::-webkit-scrollbar       { width: 6px; height: 6px; }
+.thin-amber-scrollbar::-webkit-scrollbar       { width: 5px; height: 5px; }
 .thin-amber-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .thin-amber-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--teal-light); border-radius: 9999px;
+  background-color: #4A8F8F;
+  border-radius: 9999px;
 }
-.thin-amber-scrollbar::-webkit-scrollbar-thumb:hover { background-color: var(--burgundy); }
-.thin-amber-scrollbar { scrollbar-width: thin; scrollbar-color: var(--teal-light) transparent; }
+.thin-amber-scrollbar::-webkit-scrollbar-thumb:hover { background-color: #710117; }
+.thin-amber-scrollbar::-webkit-scrollbar-button { display: none; }
+.thin-amber-scrollbar { scrollbar-width: thin; scrollbar-color: #4A8F8F transparent; }
