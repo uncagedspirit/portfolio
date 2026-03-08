@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const CONTRIB_COLORS = [
-  "#F4EDE4",       // level 0 — cream (empty)
+  "#FFFFFF",       // level 0 — cream (empty)
   "#F5C2CC",       // level 1 — very light rose
   "#C4536A",       // level 2 — medium burgundy-rose
   "#8F1F35",       // level 3 — darker burgundy
@@ -79,7 +79,7 @@ function GitHubContributions({ username = "uncagedspirit" }) {
     <div>
       <p className="pf-section-label">GITHUB CONTRIBUTIONS</p>
 
-      <div className="w-full lg:w-[75%]">
+      <div className="w-full lg:w-[100%]">
         <div className="pf-card-sm px-4 py-4">
           {loading && (
             <div className="flex items-center gap-2 py-6 justify-center">
@@ -127,7 +127,7 @@ function GitHubContributions({ username = "uncagedspirit" }) {
                 {/* Grid: days × weeks */}
                 <div className="flex gap-0">
                   {/* Day labels */}
-                  <div className="flex flex-col gap-[2px] mr-1" style={{ minWidth: "1.8rem" }}>
+                  <div className="flex flex-col gap-[0.5] mr-1" style={{ minWidth: "1.8rem" }}>
                     {DAYS.map((d, i) => (
                       <div
                         key={d}
@@ -142,9 +142,9 @@ function GitHubContributions({ username = "uncagedspirit" }) {
                   </div>
 
                   {/* Weeks */}
-                  <div className="flex gap-[2px]">
+                  <div className="flex gap-0.5">
                     {weeks.map((week, wi) => (
-                      <div key={wi} className="flex flex-col gap-[2px]">
+                      <div key={wi} className="flex flex-col gap-0.5">
                         {Array.from({ length: 7 }).map((_, di) => {
                           const day = week[di];
                           if (!day) {
