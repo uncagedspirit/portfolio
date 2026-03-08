@@ -4,6 +4,28 @@ import { projects } from "../data/projectsData";
 
 const Dash = () => <div className="pf-divider" />;
 
+const BORDER_PCT = "20%";
+const INNER = "calc(20% + 48px)";
+
+const HatchLeft  = () => (
+  <div style={{
+    position: "absolute", top: 0, bottom: 0, left: 0, width: BORDER_PCT, pointerEvents: "none",
+    background: "repeating-linear-gradient(45deg, rgba(113,1,23,0.09) 0px, rgba(113,1,23,0.09) 1px, transparent 1px, transparent 9px)",
+  }} />
+);
+const HatchRight = () => (
+  <div style={{
+    position: "absolute", top: 0, bottom: 0, right: 0, width: BORDER_PCT, pointerEvents: "none",
+    background: "repeating-linear-gradient(45deg, rgba(113,1,23,0.09) 0px, rgba(113,1,23,0.09) 1px, transparent 1px, transparent 9px)",
+  }} />
+);
+const ColLineLeft  = () => (
+  <div style={{ pointerEvents:"none", position:"absolute", top:0, bottom:0, left: BORDER_PCT, borderLeft:"2px dashed rgba(113,1,23,0.50)" }} />
+);
+const ColLineRight = () => (
+  <div style={{ pointerEvents:"none", position:"absolute", top:0, bottom:0, right: BORDER_PCT, borderRight:"2px dashed rgba(113,1,23,0.50)" }} />
+);
+
 function ProjectDetail() {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -11,15 +33,14 @@ function ProjectDetail() {
 
   const inner = (content) => (
     <div className="min-h-screen pf-bg-page relative transition-colors duration-300">
-      <div className="pf-col-line-left" />
-      <div className="pf-col-line-right" />
+      <HatchLeft />
+      <HatchRight />
+      <ColLineLeft />
+      <ColLineRight />
       <div style={{ height: "10vw" }} />
       <Dash />
-      <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-3">
-        <button
-          onClick={() => navigate("/projects")}
-          className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm cursor-pointer"
-        >
+      <div style={{ paddingLeft: INNER, paddingRight: INNER }} className="py-3">
+        <button onClick={() => navigate("/projects")} className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm cursor-pointer">
           <span>←</span><span>back to projects</span>
         </button>
       </div>
@@ -30,14 +51,14 @@ function ProjectDetail() {
   );
 
   if (!project) return inner(
-    <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="pt-6">
+    <div style={{ paddingLeft: INNER, paddingRight: INNER }} className="pt-6">
       <h1 className="pf-heading-lg">Project not found</h1>
     </div>
   );
 
   return inner(
     <>
-      <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="pt-6 pb-2">
+      <div style={{ paddingLeft: INNER, paddingRight: INNER }} className="pt-6 pb-2">
         <div className="flex items-center gap-3 mb-2">
           {project.logo && (
             <img src={project.logo} alt={`${project.title} logo`}
@@ -53,7 +74,7 @@ function ProjectDetail() {
 
       <div className="pt-4"><Dash /></div>
 
-      <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-8 flex flex-col gap-8">
+      <div style={{ paddingLeft: INNER, paddingRight: INNER }} className="py-8 flex flex-col gap-8">
         {project.techStack?.length > 0 && (
           <div>
             <p className="pf-section-label mb-3">TECH STACK</p>
@@ -65,15 +86,8 @@ function ProjectDetail() {
 
         <div>
           <p className="pf-section-label mb-3">PREVIEW</p>
-          {/* Autoplay, no controls, muted, loop */}
-          <video
-            src={project.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full rounded-2xl shadow-lg border-b-4 border-r-4 border-t border-l border-(--border-strong)"
-          />
+          <video src={project.video} autoPlay muted loop playsInline
+            className="w-full rounded-2xl shadow-lg border-b-4 border-r-4 border-t border-l border-(--border-strong)" />
         </div>
 
         {project.details?.length > 0 && (
