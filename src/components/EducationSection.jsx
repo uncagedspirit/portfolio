@@ -5,7 +5,7 @@ function EducationSection() {
   return (
     <>
       <p className="pf-section-label">EDUCATION</p>
-      <div className="w-full lg:w-[85%] flex flex-row gap-3 flex-wrap">
+      <div className="w-full lg:w-full flex flex-row gap-6 flex-wrap">
         {educationData.map((edu, index) => (
           <div key={index} className="pf-card-sm flex-1 min-w-35 py-4 sm:py-5 px-3 sm:px-4 transition-colors duration-300">
             <p className="pf-heading-sm leading-tight">{edu.instituteName}</p>
