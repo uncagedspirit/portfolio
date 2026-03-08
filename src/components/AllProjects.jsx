@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
+import PortfolioFooter from "./PortfolioFooter";
 
 const Dash = () => <div className="pf-divider" />;
 
@@ -105,7 +106,8 @@ function AllProjects() {
       </div>
 
       <Dash />
-      <div style={{ height: "10vw" }} />
+      <PortfolioFooter />
+      <div style={{ height: "4vw" }} />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import TestimonialsSection from "./TestimonialsSection";
 import ProjectsSection from "./ProjectsSection";
 import GitHubContributions from "./GitHubContributions";
 import CommitTerminal from "./CommitTerminal";
+import PortfolioFooter from "./PortfolioFooter";
 
 const Dash = () => <div className="pf-divider" />;
 const Section = ({ children }) => <div className="py-6 sm:py-8">{children}</div>;
@@ -58,7 +59,10 @@ function RightSection() {
         <CommitTerminal />
       </div>
 
-      <div style={{ height: "10vw" }} />
+      <Dash />
+      <PortfolioFooter />
+
+      <div style={{ height: "4vw" }} />
     </div>
   );
 }
