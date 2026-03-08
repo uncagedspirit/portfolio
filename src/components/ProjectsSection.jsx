@@ -43,7 +43,7 @@ function ProjectsSection() {
         <div className="flex justify-center mt-6 sm:mt-8">
           <button
             onClick={() => navigate("/projects")}
-            className="pf-btn-secondary px-6 sm:px-8 py-2 text-sm sm:text-base hover:pf-btn-primary"
+            className="pf-btn-primary px-6 sm:px-8 py-2 text-sm sm:text-base hover:pf-btn-secondary"
           >
             View All Projects
           </button>
