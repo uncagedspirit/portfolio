@@ -138,7 +138,7 @@ export default function CommitTerminal() {
             <div className="flex items-center">
               <TerminalLine line={partial} />
               <span
-                className="inline-block w-[7px] h-[13px] ml-[1px]"
+                className="inline-block w-1.75 h-3.25 ml-px"
                 style={{
                   backgroundColor: "#F4EDE4",
                   opacity: showCursor ? 1 : 0,
@@ -157,7 +157,7 @@ export default function CommitTerminal() {
             <span style={{ color: "#C4536A" }}> master</span>
             <span style={{ color: "#28C840" }} className="ml-2">❯</span>
             <span
-              className="inline-block w-[7px] h-[13px] ml-[5px]"
+              className="inline-block w-1.75 h-3.25 ml-1.25"
               style={{
                 backgroundColor: "#F4EDE4",
                 opacity: showCursor ? 1 : 0,
