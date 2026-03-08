@@ -16,7 +16,10 @@ function ProjectDetail() {
       <div style={{ height: "10vw" }} />
       <Dash />
       <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-3">
-        <button onClick={() => navigate("/projects")} className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm">
+        <button
+          onClick={() => navigate("/projects")}
+          className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm cursor-pointer"
+        >
           <span>←</span><span>back to projects</span>
         </button>
       </div>
@@ -62,8 +65,15 @@ function ProjectDetail() {
 
         <div>
           <p className="pf-section-label mb-3">PREVIEW</p>
-          <video src={project.video} controls loop playsInline
-            className="w-full rounded-2xl shadow-lg border-b-4 border-r-4 border-t border-l border-(--border-strong)" />
+          {/* Autoplay, no controls, muted, loop */}
+          <video
+            src={project.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full rounded-2xl shadow-lg border-b-4 border-r-4 border-t border-l border-(--border-strong)"
+          />
         </div>
 
         {project.details?.length > 0 && (

@@ -79,7 +79,7 @@ function GitHubContributions({ username = "uncagedspirit" }) {
     <div>
       <p className="pf-section-label">GITHUB CONTRIBUTIONS</p>
 
-      <div className="w-full lg:w-[100%]">
+      <div className="w-full lg:w-full">
         <div className="pf-card-sm px-4 py-4">
           {loading && (
             <div className="flex items-center gap-2 py-6 justify-center">
