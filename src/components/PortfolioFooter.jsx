@@ -53,7 +53,7 @@ export default function PortfolioFooter() {
 
   return (
     <div
-      className="w-full py-5 px-6 flex flex-col items-start gap-1"
+      className="w-full py-5 px-6 flex flex-col items-center gap-1"
       style={{ fontFamily: "'Courier New', Courier, monospace" }}
     >
       <p className="text-xs sm:text-sm" style={{ color: "var(--teal-mid)" }}>
