@@ -17,7 +17,10 @@ function AllProjects() {
       <Dash />
 
       <div style={{ paddingLeft: "calc(15% + 24px)", paddingRight: "calc(15% + 24px)" }} className="py-3">
-        <button onClick={() => navigate("/")} className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm">
+        <button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 pf-text-muted hover:pf-text-body transition-colors text-sm cursor-pointer"
+        >
           <span>←</span><span>back to home</span>
         </button>
       </div>
@@ -66,14 +69,20 @@ function AllProjects() {
                   </div>
 
                   <div className="relative flex-1 p-3 sm:p-4 pt-0">
-                    <video src={project.video} muted autoPlay loop playsInline
-                      className="rounded-lg shadow-lg w-full h-full object-cover border-2 border-(--border-subtle) group-hover:border-white transition-all duration-300" />
+                    <video
+                      src={project.video}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      className="rounded-lg shadow-lg w-full h-full object-cover border-2 border-(--border-subtle) group-hover:border-white transition-all duration-300"
+                    />
                   </div>
 
                   <div className="p-3 sm:p-4 pt-0 flex items-center justify-center gap-2">
                     <button
                       onClick={(e) => { e.stopPropagation(); navigate(`/projects/${project.projectId}`); }}
-                      className="pf-btn-primary px-4 py-2 text-xs sm:text-sm"
+                      className="pf-btn-primary px-4 py-2 text-xs sm:text-sm cursor-pointer"
                     >Details</button>
                     {project.liveLink && (
                       <a href={project.liveLink} target="_blank" rel="noopener noreferrer"
