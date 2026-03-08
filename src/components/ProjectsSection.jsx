@@ -9,7 +9,7 @@ function ProjectsSection() {
   return (
     <div>
       <p className="pf-section-label">PROJECTS</p>
-      <div className="w-full lg:w-[90%]">
+      <div className="w-full lg:w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {projects.slice(0, 4).map((project, index) => {
             const randomIndex = Math.floor(Math.random() * 15) + 1;
