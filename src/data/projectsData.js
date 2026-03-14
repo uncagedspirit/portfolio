@@ -7,6 +7,7 @@ import ochiLogo from "../assets/project logos/ochi.png";
 import framehuntVideo from "../assets/project recordings/framehunt2.webm"; 
 import framehuntLogo from "../assets/project logos/framehunt.jpg";
 
+//raw change
 
 export const projects = [
   {
